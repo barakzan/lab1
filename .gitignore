@@ -6,7 +6,7 @@
 *.db_info
 *.bak
 *.kpt
-lab3 - vhdl1/simulation/qsim/work/_vmake
+lab3-vhdl1/*/*
 *.qtl
 *.qpg
 *.qdb
@@ -43,3 +43,7 @@ lab3 - vhdl1/db/lab_vhdl1.map.bpm
 lab3 - vhdl1/db/lab_vhdl1.map.logdb
 lab3 - vhdl1/db/lab_vhdl1.map_bb.logdb
 lab3 - vhdl1/db/lab_vhdl1_partition_pins.json
+*.ammdb
+*.logdb
+*.dfp
+*.rcfdb

@@ -10,18 +10,21 @@ end counter ;
 
 
 architecture arc_counter of counter is	
-begin
 
+ signal tick_count : std_logic_vector(3 downto 0) ;
+
+begin
 	process(CLK,RESETN)
-		variable tick_count: integer ;
 		begin
-			if (RESETN = '1' OR tick_count = 13) then
-				count <= (others => '0');
-				tick_count := 0;
+		if rising_edge(CLK) then
+			if (RESETN = '0' or unsigned(tick_count) = 13) then
+				tick_count <= (others => '0');	
 			else
-				tick_count := tick_count + 1;
-				count <= std_logic_vector(to_unsigned(tick_count, count'length));	
-			end if;				
+				tick_count <= std_logic_vector(unsigned(tick_count) + 1);		
+			end if;
+		end if;
 	end process;
+	
+	count <= tick_count ;
 
 end arc_counter;
