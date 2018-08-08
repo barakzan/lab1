@@ -6,7 +6,8 @@
 *.db_info
 *.bak
 *.kpt
-lab3-vhdl1/*/*
+lab3*/*/*
+lab4*/*/*
 *.qtl
 *.qpg
 *.qdb
