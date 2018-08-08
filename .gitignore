@@ -1,0 +1,45 @@
+
+*.cdb
+*.xml
+*.hdb
+*.rdb
+*.db_info
+*.bak
+*.kpt
+lab3 - vhdl1/simulation/qsim/work/_vmake
+*.qtl
+*.qpg
+*.qdb
+*.xrf
+lab3 - vhdl1/simulation/qsim/transcript
+lab3 - vhdl1/simulation/qsim/vwf_sim_transcript
+*.vht
+lab3 - vhdl1/simulation/qsim/work/_info
+*.vho
+lab3 - vhdl1/simulation/qsim/lab_vhdl1.sft
+*.do
+*.rpt
+*.summary
+*.done
+*.vcd
+*.inc
+*.qws
+*.qsf
+*.qpf
+lab3 - vhdl1/incremental_db/README
+*.sig
+*.hb_info
+*.dpi
+*.qmsg
+*.tmw_info
+*.ddb
+*.sci
+*.hier_info
+*.html
+*.txt
+lab3 - vhdl1/db/lab_vhdl1.hif
+lab3 - vhdl1/db/lab_vhdl1.map.ammdb
+lab3 - vhdl1/db/lab_vhdl1.map.bpm
+lab3 - vhdl1/db/lab_vhdl1.map.logdb
+lab3 - vhdl1/db/lab_vhdl1.map_bb.logdb
+lab3 - vhdl1/db/lab_vhdl1_partition_pins.json
