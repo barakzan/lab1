@@ -1,0 +1,102 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/simulation/qsim
+Eaddr_counter
+Z1 w1534145910
+Z2 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 cD3@N^MdoDolN5@R6?T[V1
+Z3 DPx8 cyclonev 19 cyclonev_components 0 22 3BCIeZzdIHLCX<;R;K38G3
+Z4 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 PQDYM9fR]Wek<A7X8bA8S1
+Z5 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z6 DPx6 altera 11 dffeas_pack 0 22 >EJOc2K4@P4f?njWHdOcd0
+Z7 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z8 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z9 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z10 DPx6 altera 28 altera_primitives_components 0 22 14j`ZKHCzSI;]V?hmAE6_1
+R0
+Z11 8mss.vho
+Z12 Fmss.vho
+l0
+L39
+V7K1iCBbSV1YOMFhWzIdTP2
+!s100 YnO6<IWb3od@KQYfL]GKC1
+Z13 OV;C;10.5b;63
+32
+Z14 !s110 1534145911
+!i10b 1
+Z15 !s108 1534145911.000000
+Z16 !s90 -work|work|mss.vho|
+Z17 !s107 mss.vho|
+!i113 1
+Z18 o-work work
+Z19 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+R10
+DEx4 work 12 addr_counter 0 22 7K1iCBbSV1YOMFhWzIdTP2
+l105
+L64
+VF4cIN>Ga;lKC6a^;oS?Yg2
+!s100 JGdaea2m?PD@?JFW=:k3P1
+R13
+32
+R14
+!i10b 1
+R15
+R16
+R17
+!i113 1
+R18
+R19
+Eaddr_counter_vhd_vec_tst
+Z20 w1534145908
+R8
+R9
+R0
+Z21 8Waveform.vwf.vht
+Z22 FWaveform.vwf.vht
+l0
+L32
+VW`Q;AO]RAGUX9:gi_jai>3
+!s100 6_oZ9jkakiO7f^XSBIQ_<3
+R13
+32
+R14
+!i10b 1
+R15
+Z23 !s90 -work|work|Waveform.vwf.vht|
+Z24 !s107 Waveform.vwf.vht|
+!i113 1
+R18
+R19
+Aaddr_counter_arch
+R8
+R9
+Z25 DEx4 work 24 addr_counter_vhd_vec_tst 0 22 W`Q;AO]RAGUX9:gi_jai>3
+l51
+L34
+Vkc@3G`cOHH<WFjHN^ZSH@3
+!s100 zPdijPJoDR@eE<n9AjVMY3
+R13
+32
+R14
+!i10b 1
+R15
+R23
+R24
+!i113 1
+R18
+R19
