@@ -1,0 +1,29 @@
+Quartus Prime Archive log --	C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/mss.qarlog
+
+Archive:	C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/mss.qar
+Date:		Mon Aug 13 12:27:14 2018
+Quartus Prime		17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/Waveform.vwf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/assignment_defaults.qdf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/constraints/DE10_Standard_Audio.sdc
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/constraints/pin.tcl
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/mss.qpf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/mss.qsf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/mss_assignment_defaults.qdf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/SinTable.vhd
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/addr_counter.vhd
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/audio_codec_controller.qxp
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/data_conversion.vhd
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/dpram.vhd
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/experiment_data_conversion.bdf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/experiment_digital_recorder.bdf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/experiment_sinus_generator.bdf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/prescaler.vhd
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/recorder_module.bdf
+C:/electricalENG/lab/lab1h/lab5-mss/mss_students_restored/rtl/recorder_module.bsf
+	======= Total: 18 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

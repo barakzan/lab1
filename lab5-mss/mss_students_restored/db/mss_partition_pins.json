@@ -4,35 +4,91 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "addr[0]",
+					"name" : "data_out[0]",
 					"strict" : false
 				},
 				{
-					"name" : "addr[1]",
+					"name" : "data_out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "addr[2]",
+					"name" : "data_out[2]",
 					"strict" : false
 				},
 				{
-					"name" : "addr[3]",
+					"name" : "data_out[3]",
 					"strict" : false
 				},
 				{
-					"name" : "addr[4]",
+					"name" : "data_out[4]",
 					"strict" : false
 				},
 				{
-					"name" : "addr[5]",
+					"name" : "data_out[5]",
 					"strict" : false
 				},
 				{
-					"name" : "addr[6]",
+					"name" : "data_out[6]",
 					"strict" : false
 				},
 				{
-					"name" : "addr[7]",
+					"name" : "data_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[14]",
+					"strict" : false
+				},
+				{
+					"name" : "data_out[15]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MUX[1]",
+					"strict" : false
+				},
+				{
+					"name" : "MUX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "MUX[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[15]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[0]",
 					"strict" : false
 				},
 				{
@@ -44,11 +100,55 @@
 					"strict" : false
 				},
 				{
-					"name" : "en",
+					"name" : "data_in[2]",
 					"strict" : false
 				},
 				{
-					"name" : "en1",
+					"name" : "data_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[8]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[9]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[10]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[11]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[12]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[13]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[14]",
 					"strict" : false
 				}
 			]
