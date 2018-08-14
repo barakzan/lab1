@@ -22,6 +22,7 @@ END data_conversion;
 architecture arch_data_conversion of data_conversion is
 begin
 		process(CLK_IN, resetN)
+		variable temp : std_logic_vector(COUNT_SIZE - 1 downto 0);
 		begin
 			if resetN = '0' then
 				data_out <= (others => '0');
@@ -53,8 +54,19 @@ begin
 						data_out(COUNT_SIZE - 1 downto 0) <= data_in(COUNT_SIZE - 1) & 
 													data_in(COUNT_SIZE - 1 downto 1);
 					when "111" =>
-						data_out(COUNT_SIZE - 1 downto 0) <= data_in(COUNT_SIZE - 1 downto 0) + 
+						temp := data_in(COUNT_SIZE - 1 downto 0) + 
 													(data_in(COUNT_SIZE - 1) & data_in(COUNT_SIZE - 1 downto 1));
+						if (temp(COUNT_SIZE - 1) xor data_in(COUNT_SIZE - 1)) = '0' then
+							data_out <= temp;
+						else
+							if data_in(COUNT_SIZE - 1) = '1' then -- negative number
+								data_out <= (others => '0');
+								data_out(COUNT_SIZE - 1) <= '1';
+							else 							 -- positive number
+								data_out <= (others => '1');
+								data_out(COUNT_SIZE - 1) <= '0';
+							end if;
+						end if;	
 				end case;
 			end if;
 			
