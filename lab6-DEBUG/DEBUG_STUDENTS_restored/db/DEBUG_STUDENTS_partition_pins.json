@@ -4,39 +4,87 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "dout_new",
+					"name" : "dout",
 					"strict" : false
 				},
 				{
-					"name" : "dout[0]",
+					"name" : "make",
 					"strict" : false
 				},
 				{
-					"name" : "dout[1]",
+					"name" : "break",
 					"strict" : false
 				},
 				{
-					"name" : "dout[2]",
+					"name" : "din[6]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[3]",
+					"name" : "key_code[6]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[4]",
+					"name" : "din[7]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[5]",
+					"name" : "key_code[7]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[6]",
+					"name" : "din[8]",
 					"strict" : false
 				},
 				{
-					"name" : "dout[7]",
+					"name" : "key_code[8]",
+					"strict" : false
+				},
+				{
+					"name" : "din[0]",
+					"strict" : false
+				},
+				{
+					"name" : "key_code[0]",
+					"strict" : false
+				},
+				{
+					"name" : "din[1]",
+					"strict" : false
+				},
+				{
+					"name" : "key_code[1]",
+					"strict" : false
+				},
+				{
+					"name" : "din[2]",
+					"strict" : false
+				},
+				{
+					"name" : "key_code[2]",
+					"strict" : false
+				},
+				{
+					"name" : "din[3]",
+					"strict" : false
+				},
+				{
+					"name" : "key_code[3]",
+					"strict" : false
+				},
+				{
+					"name" : "din[4]",
+					"strict" : false
+				},
+				{
+					"name" : "key_code[4]",
+					"strict" : false
+				},
+				{
+					"name" : "din[5]",
+					"strict" : false
+				},
+				{
+					"name" : "key_code[5]",
 					"strict" : false
 				},
 				{
@@ -45,14 +93,6 @@
 				},
 				{
 					"name" : "resetN",
-					"strict" : false
-				},
-				{
-					"name" : "kbd_clk",
-					"strict" : false
-				},
-				{
-					"name" : "kbd_dat",
 					"strict" : false
 				}
 			]

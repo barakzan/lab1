@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off DEBUG_STUDENTS -c DEBUG_STUDENTS --vector_source="C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/Waveform.vwf" --testbench_file="C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/Waveform.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off DEBUG_STUDENTS -c DEBUG_STUDENTS --vector_source="C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/Waveform1.vwf" --testbench_file="C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/Waveform1.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -26,8 +26,8 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: devices manufactured by Intel and sold by Intel or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Wed Aug 15 12:14:55 2018
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off DEBUG_STUDENTS -c DEBUG_STUDENTS --vector_source=C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/Waveform.vwf --testbench_file=C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/Waveform.vwf.vht
+    Info: Processing started: Wed Aug 15 21:26:03 2018
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off DEBUG_STUDENTS -c DEBUG_STUDENTS --vector_source=C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/Waveform1.vwf --testbench_file=C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/Waveform1.vwf.vht
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
 Completed successfully. 
@@ -53,14 +53,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: devices manufactured by Intel and sold by Intel or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Wed Aug 15 12:14:57 2018
+    Info: Processing started: Wed Aug 15 21:26:05 2018
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/ DEBUG_STUDENTS -c DEBUG_STUDENTS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file DEBUG_STUDENTS.vho in folder "C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4734 megabytes
-    Info: Processing ended: Wed Aug 15 12:14:59 2018
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 4735 megabytes
+    Info: Processing ended: Wed Aug 15 21:26:06 2018
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
@@ -81,13 +81,12 @@ Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
 
 
 # do DEBUG_STUDENTS.do
+# ** Warning: (vlib-34) Library already exists at "work".
 
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:15:00 on Aug 15,2018
+# Start time: 21:26:07 on Aug 15,2018
 # vcom -work work DEBUG_STUDENTS.vho 
-
 # -- Loading package STANDARD
-
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package VITAL_Timing
@@ -97,28 +96,28 @@ Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
 # -- Loading package altera_lnsim_components
 # -- Loading package cyclonev_atom_pack
 # -- Loading package cyclonev_components
-# -- Compiling entity bitrec
-# -- Compiling architecture structure of bitrec
-
-# End time: 12:15:00 on Aug 15,2018, Elapsed time: 0:00:00
+# -- Compiling entity LEFT_SHIFT
+# -- Compiling architecture structure of LEFT_SHIFT
+# End time: 21:26:07 on Aug 15,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:15:00 on Aug 15,2018
-# vcom -work work Waveform.vwf.vht 
+# Start time: 21:26:07 on Aug 15,2018
+# vcom -work work Waveform1.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity bitrec_vhd_vec_tst
-# -- Compiling architecture bitrec_arch of bitrec_vhd_vec_tst
-# End time: 12:15:00 on Aug 15,2018, Elapsed time: 0:00:00
+# -- Compiling entity LEFT_SHIFT_vhd_vec_tst
+# -- Compiling architecture LEFT_SHIFT_arch of LEFT_SHIFT_vhd_vec_tst
+# End time: 21:26:07 on Aug 15,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
-# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.bitrec_vhd_vec_tst 
-# Start time: 12:15:00 on Aug 15,2018
+# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.LEFT_SHIFT_vhd_vec_tst 
+# Start time: 21:26:08 on Aug 15,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.bitrec_vhd_vec_tst(bitrec_arch)
+# Loading work.left_shift_vhd_vec_tst(left_shift_arch)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading altera.dffeas_pack
@@ -126,31 +125,28 @@ Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
 # Loading altera_lnsim.altera_lnsim_components
 # Loading cyclonev.cyclonev_atom_pack(body)
 # Loading cyclonev.cyclonev_components
-# Loading work.bitrec(structure)
+# Loading work.left_shift(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cyclonev.cyclonev_io_obuf(arch)
 # Loading cyclonev.cyclonev_io_ibuf(arch)
-# Loading cyclonev.cyclonev_clkena(behavior)
-# Loading altera.dffeas(vital_dffeas)
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
-# ** Warning: Design size of 10919 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-# after#32
+# Loading altera.dffeas(vital_dffeas)
+# after#34
 
-# End time: 12:15:01 on Aug 15,2018, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
+# End time: 21:26:08 on Aug 15,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/Waveform.vwf...
+Reading C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/Waveform1.vwf...
 
 Reading C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/DEBUG_STUDENTS.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/DEBUG_STUDENTS_20180815121501.sim.vwf
+Writing the resulting VWF to C:/electricalENG/lab/lab1h/lab6-DEBUG/DEBUG_STUDENTS_restored/simulation/qsim/DEBUG_STUDENTS_20180815212608.sim.vwf
 
 Finished VCD to VWF conversion.
 
