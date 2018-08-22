@@ -1,0 +1,6 @@
+{
+	"common_dir" : "/home/llandis/platform_test/16.0/cv_soc_devkit_baseline/devkit_cycloneV_baseline/",
+	"acds_version" : "Version 16.0.0",
+	"platform" : "linux",
+	"os" : "Red Hat"
+}
