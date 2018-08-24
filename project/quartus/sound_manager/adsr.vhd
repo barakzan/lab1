@@ -46,7 +46,7 @@ signal out_n : std_logic_vector(33 downto 0);
 	slowClock: prescaler port map (
 		CLK_IN=>CLK,
 		resetN=>resetN,
-		count_limit=>450000,
+		count_limit=>45000,
 		prescaler_1=>slowClk) ;
 
 	out_n <= in_note * amplifier;
