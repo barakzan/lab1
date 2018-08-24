@@ -1,0 +1,114 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 280 208)
+	(text "KBDINTF" (rect 5 0 67 20)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 169 31 188)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "resetN" (rect 0 0 46 20)(font "Intel Clear" (font_size 8)))
+		(text "resetN" (rect 21 27 67 47)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "KBD_CLK" (rect 0 0 64 20)(font "Intel Clear" (font_size 8)))
+		(text "KBD_CLK" (rect 21 43 85 63)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "KBD_DAT" (rect 0 0 67 20)(font "Intel Clear" (font_size 8)))
+		(text "KBD_DAT" (rect 21 59 88 79)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "clk" (rect 0 0 20 20)(font "Intel Clear" (font_size 8)))
+		(text "clk" (rect 21 75 41 95)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "make" (rect 0 0 37 20)(font "Intel Clear" (font_size 8)))
+		(text "make" (rect 206 27 243 47)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 32)(pt 248 32))
+	)
+	(port
+		(pt 264 48)
+		(output)
+		(text "break" (rect 0 0 40 20)(font "Intel Clear" (font_size 8)))
+		(text "break" (rect 203 43 243 63)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 48)(pt 248 48))
+	)
+	(port
+		(pt 264 64)
+		(output)
+		(text "type[8..0]" (rect 0 0 67 20)(font "Intel Clear" (font_size 8)))
+		(text "type[8..0]" (rect 176 59 243 79)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 64)(pt 248 64)(line_width 3))
+	)
+	(port
+		(pt 264 80)
+		(output)
+		(text "dout_new" (rect 0 0 71 20)(font "Intel Clear" (font_size 8)))
+		(text "dout_new" (rect 172 75 243 95)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 80)(pt 248 80))
+	)
+	(port
+		(pt 264 96)
+		(output)
+		(text "dout_down[6..0]" (rect 0 0 118 20)(font "Intel Clear" (font_size 8)))
+		(text "dout_down[6..0]" (rect 125 91 243 111)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 96)(pt 248 96)(line_width 3))
+	)
+	(port
+		(pt 264 112)
+		(output)
+		(text "dout_up[6..0]" (rect 0 0 96 20)(font "Intel Clear" (font_size 8)))
+		(text "dout_up[6..0]" (rect 147 107 243 127)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 112)(pt 248 112)(line_width 3))
+	)
+	(port
+		(pt 264 128)
+		(output)
+		(text "d_bitrec_down[6..0]" (rect 0 0 141 20)(font "Intel Clear" (font_size 8)))
+		(text "d_bitrec_down[6..0]" (rect 102 123 243 143)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 128)(pt 248 128)(line_width 3))
+	)
+	(port
+		(pt 264 144)
+		(output)
+		(text "d_bitrec_up[6..0]" (rect 0 0 120 20)(font "Intel Clear" (font_size 8)))
+		(text "d_bitrec_up[6..0]" (rect 123 139 243 159)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 144)(pt 248 144)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 248 176))
+	)
+)
