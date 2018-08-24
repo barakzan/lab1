@@ -24,16 +24,12 @@ lab3 - vhdl1/simulation/qsim/lab_vhdl1.sft
 *.done
 *.vcd
 *.inc
-*.qws
-*.qsf
 lab3 - vhdl1/incremental_db/README
 *.sig
 *.hb_info
 *.dpi
 *.qmsg
 *.tmw_info
-*.ddb
-*.sci
 *.hier_info
 *.html
 *.txt

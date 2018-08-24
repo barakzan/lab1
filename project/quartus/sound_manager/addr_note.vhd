@@ -6,6 +6,7 @@ use ieee.std_logic_signed.all;
 
 ENTITY addr_note IS
 PORT (
+			clk				: in std_logic;
 			note1				: 	in std_logic_vector(15 downto 0);
 			note2				: 	in std_logic_vector(15 downto 0);
 			note3				: 	in std_logic_vector(15 downto 0);
@@ -24,8 +25,10 @@ begin
 
 	addr <= sum;
 
-	process (note1, note2, note3, note4, note5, note6, note7)	
+	process (clk)	
 	begin
-		sum <= note1 + note2 + note3 + note4 + note5 + note6 + note7;
+		if (rising_edge(clk)) then
+			sum <= note1 + note2 + note3 + note4 + note5 + note6 + note7;
+		end if;
 	end process;
 end addr_note_arch ;

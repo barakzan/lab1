@@ -15,22 +15,18 @@ port(
 end adsr;
 
 architecture adsr_arch of adsr is
-signal temp_note : std_logic_vector(15 downto 0);
 begin
-
-	out_note <= temp_note;
-
 	PROCESS (CLK, resetN)
 			BEGIN
 				if resetN = '0' then
-					temp_note <= (others => '0');
+					out_note <= (others => '0');
 					test_led <= '0';
 				elsif(rising_edge(CLK)) then
 					if en = '1' then
-						temp_note <= in_note;
+						out_note <= in_note;
 						test_led <= '1';
 					else
-						temp_note <= (others => '0');
+						out_note <= (others => '0');
 						test_led <= '0';
 					end if;
 				end if;
