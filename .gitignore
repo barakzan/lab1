@@ -26,7 +26,6 @@ lab3 - vhdl1/simulation/qsim/lab_vhdl1.sft
 *.inc
 *.qws
 *.qsf
-*.qpf
 lab3 - vhdl1/incremental_db/README
 *.sig
 *.hb_info
