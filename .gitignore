@@ -43,3 +43,4 @@ lab3 - vhdl1/db/lab_vhdl1_partition_pins.json
 *.logdb
 *.dfp
 *.rcfdb
+*.ddb
