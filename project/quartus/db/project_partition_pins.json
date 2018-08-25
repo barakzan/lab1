@@ -44,6 +44,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "test_led_out",
+					"strict" : false
+				},
+				{
 					"name" : "led[0]",
 					"strict" : false
 				},

@@ -30,86 +30,107 @@ architecture adsr_arch of adsr is
 		end component ;
 
 type States is (idle , --initial state
-				attack,	 -- 80ms
-				decay,	 -- 64ms
-				sustain,	 --4000ms
-				release );--12ms
+				attack,	
+				decayPressed,
+				decayReleased,
+				sustainPressed,
+				sustainReleased,		
+				releasePressed,
+				releaseReleased);
 
 signal state : States;
 signal slowClk : std_logic;
-signal amplifier : std_logic_vector(17 downto 0); -- normlized to 128000	
+signal amplifier : std_logic_vector(14 downto 0); -- normlized to 3200	
 --signal amplifier : integer  RANGE 0 to 131071;	
-signal out_n : std_logic_vector(33 downto 0);
+signal out_n : std_logic_vector(30 downto 0);
 
  begin
  
 	slowClock: prescaler port map (
 		CLK_IN=>CLK,
 		resetN=>resetN,
-		count_limit=>45000,
+		count_limit=>450000,
 		prescaler_1=>slowClk) ;
 
 	out_n <= in_note * amplifier;
-	out_note	<= out_n(29 downto 14);
+	out_note	<= out_n(30 downto 15);
+	--out_note <= in_note when en ='1' else (others => '0');
+	test_led <= '1' when amplifier > 0 else '0';
 		
-	PROCESS (clk,slowClk, resetN)
+	PROCESS (slowClk, resetN)
+	constant attackFactor : integer := 230 ;
+	constant decayFactor : integer := 30 ;
+	constant sustainFactor : integer := 18 ;
+	constant releaseFactor : integer := 22 ;
 		begin
 			if resetN = '0' then
-				test_led <= '0';
 				amplifier <= (others => '0');
 				state <= idle;
-			elsif(rising_edge(clk)) then
-				if state /= idle and en = '0' then
-					state <= release;
-				end if;
-				if slowClk = '1' then
-					case state is
-						when idle =>
-							if en = '1' then
-								state <= attack;
-								amplifier(17 downto 1) <= (others => '0');
-								amplifier(0) <= '1';
-							end if;
-						when attack =>
-							if en = '0' then
-								state <= release;
-							elsif amplifier < 128000 then
-								--amplifier <= amplifier * 16;
-								amplifier(17 downto 4) <= amplifier(13 downto 0);
-								amplifier(3 downto 0) <= (others => '0');
-							else
-								state <= decay;
-							end if;
-						when decay =>
-							if en = '0' then
-								state <= release;
-							elsif amplifier > 32000 then
-								--amplifier <= amplifier / 8;
-								amplifier(14 downto 0) <= amplifier(17 downto 3);
-								amplifier(17 downto 15) <= (others => '0');
-							else
-								state <= sustain;
-							end if;	
-						when sustain =>
-							if en = '0' then
-								state <= release;
-							elsif amplifier > 16000 then
-								--amplifier <= amplifier / 2;
-								amplifier(16 downto 0) <= amplifier(17 downto 1);
-								amplifier(17 downto 17) <= (others => '0');
-							else
-								state <= release;
-							end if;	
-						when release =>
-							if amplifier > 1 then
-								--amplifier <= amplifier / 8;
-								amplifier(14 downto 0) <= amplifier(17 downto 3);
-								amplifier(17 downto 15) <= (others => '0');
-							else
-								state <= idle;
-							end if;
-					end case;	
-				end if;
+			elsif rising_edge (slowClk) then
+				case state is
+					when idle =>
+						if en = '1' then
+							state <= attack;
+							amplifier <= (others => '0');
+						end if;
+					when attack =>
+						if en = '0' then
+							state <= decayReleased;
+						elsif amplifier < 3200 then
+							amplifier <= amplifier + attackFactor;
+						else
+							state <= decayPressed;
+						end if;
+					when decayPressed =>
+						if en = '0' then
+							state <= sustainReleased;
+						elsif amplifier > 1600 then
+							amplifier <= amplifier - decayFactor;
+						else
+							state <= sustainPressed;
+						end if;	
+					when decayReleased =>
+						if en = '1' then
+							state <= attack;
+						elsif amplifier > 1600 then
+							amplifier <= amplifier - decayFactor;
+						else
+							state <= sustainReleased;
+						end if;	
+					when sustainPressed =>
+						if en = '0' then
+							state <= releaseReleased;
+						elsif amplifier > 800 then
+							amplifier <= amplifier - sustainFactor;
+						else
+							state <= releasePressed;
+						end if;	
+					when sustainReleased =>
+						if en = '1' then
+							state <= attack;
+						elsif amplifier > 800 then
+							amplifier <= amplifier - sustainFactor;
+						else
+							state <= releaseReleased;
+						end if;
+					when releasePressed =>
+						if en = '0' then
+							state <= releaseReleased;
+						elsif amplifier > releaseFactor then
+							amplifier <= amplifier - releaseFactor;
+						else
+							amplifier <= (others => '0');	
+						end if;
+					when releaseReleased =>
+						if en = '1' then
+							state <= attack;
+						elsif amplifier > releaseFactor then
+							amplifier <= amplifier - releaseFactor;
+						else
+							amplifier <= (others => '0');
+							state <= idle;
+						end if;
+				end case;	
 			end if;
 	end process;
 end adsr_arch;
