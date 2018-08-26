@@ -146,7 +146,7 @@ GND                          : AB5       : gnd    :                   :         
 VCCH_GXBL                    : AB6       : power  :                   : 2.5V    :           :                
 GND                          : AB7       : gnd    :                   :         :           :                
 nCSO, DATA4                  : AB8       :        :                   :         : 3A        :                
-TDO                          : AB9       : output :                   :         : 3A        :                
+altera_reserved_tdo          : AB9       : output : 2.5 V             :         : 3A        : N              
 VCCPGM                       : AB10      : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
 VCC_AUX                      : AB11      : power  :                   : 2.5V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB12      :        :                   :         : 3A        :                
@@ -159,7 +159,7 @@ VCCPD3B4A                    : AB18      : power  :                   : 3.3V    
 GND                          : AB19      : gnd    :                   :         :           :                
 VCCPD3B4A                    : AB20      : power  :                   : 3.3V    : 3B, 4A    :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AB21      :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AB22      :        :                   :         : 5A        :                
+MICROPHON_LED                : AB22      : output : 3.3-V LVTTL       :         : 5A        : N              
 led[1]                       : AB23      : output : 3.3-V LVTTL       :         : 5A        : Y              
 VCCIO5A                      : AB24      : power  :                   : 3.3V    : 5A        :                
 KBD_CLK                      : AB25      : input  : 3.3-V LVTTL       :         : 5A        : Y              
@@ -172,7 +172,7 @@ GND                          : AC1       :        :                   :         
 GND                          : AC2       :        :                   :         : B0L       :                
 GND                          : AC3       : gnd    :                   :         :           :                
 GND                          : AC4       : gnd    :                   :         :           :                
-TCK                          : AC5       : input  :                   :         : 3A        :                
+altera_reserved_tck          : AC5       : input  : 2.5 V             :         : 3A        : N              
 GND                          : AC6       : gnd    :                   :         :           :                
 AS_DATA3, DATA3              : AC7       :        :                   :         : 3A        :                
 GND                          : AC8       : gnd    :                   :         :           :                
@@ -254,7 +254,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AE23      :        :                   :      
 led[6]                       : AE24      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AE25      : power  :                   : 3.3V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE26      :        :                   :         : 5A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AE27      :        :                   :         : 5A        :                
+MICROPHON_ON                 : AE27      : input  : 3.3-V LVTTL       :         : 5A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE28      :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE29      :        :                   :         : 5B        :                
 VCCIO5B                      : AE30      : power  :                   : 2.5V    : 5B        :                
@@ -309,7 +309,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AG18      :        :                   :      
 VCCIO4A                      : AG19      : power  :                   : 3.3V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG20      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG21      :        :                   :         : 4A        :                
-MICROPHON_ON                 : AG22      : input  : 3.3-V LVTTL       :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AG22      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG23      :        :                   :         : 4A        :                
 GND                          : AG24      : gnd    :                   :         :           :                
 led[4]                       : AG25      : output : 3.3-V LVTTL       :         : 4A        : Y              
@@ -341,7 +341,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AH20      :        :                   :      
 GND                          : AH21      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH22      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH23      :        :                   :         : 4A        :                
-MICROPHON_LED                : AH24      : output : 3.3-V LVTTL       :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AH24      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH25      :        :                   :         : 4A        :                
 VCCIO4A                      : AH26      : power  :                   : 3.3V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AH27      :        :                   :         : 4A        :                
@@ -863,7 +863,7 @@ GND                          : U4        : gnd    :                   :         
 VCCE_GXBL                    : U5        : power  :                   : 1.1V    :           :                
 GND                          : U6        : gnd    :                   :         :           :                
 DCLK                         : U7        :        :                   :         : 3A        :                
-TDI                          : U8        : input  :                   :         : 3A        :                
+altera_reserved_tdi          : U8        : input  : 2.5 V             :         : 3A        : N              
 GND                          : U9        : gnd    :                   :         :           :                
 VCC                          : U10       : power  :                   : 1.1V    :           :                
 GND                          : U11       : gnd    :                   :         :           :                
@@ -894,7 +894,7 @@ GND                          : V5        : gnd    :                   :         
 VCCH_GXBL                    : V6        : power  :                   : 2.5V    :           :                
 GND                          : V7        : gnd    :                   :         :           :                
 VCCA_FPLL                    : V8        : power  :                   : 2.5V    :           :                
-TMS                          : V9        : input  :                   :         : 3A        :                
+altera_reserved_tms          : V9        : input  : 2.5 V             :         : 3A        : N              
 GND                          : V10       : gnd    :                   :         :           :                
 VCC                          : V11       : power  :                   : 1.1V    :           :                
 GND                          : V12       : gnd    :                   :         :           :                
