@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all ;
 use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all ;
 
 
 entity adsr is
@@ -10,10 +10,14 @@ port(
   resetN 					: in std_logic;
   en							: in std_logic;
   in_note  					: in std_logic_vector(15 downto 0);
-  attackFactor          : IN INTEGER  RANGE 0 to 4095;
-  decayFactor 				: IN INTEGER  RANGE 0 to 511;
-  sustainFactor 			: IN INTEGER  RANGE 0 to 511;
-  releaseFactor 			: IN INTEGER  RANGE 0 to 511;
+  attackFactor          : IN INTEGER  RANGE 0 to 4095;--2800
+  decayFactor 				: IN INTEGER  RANGE 0 to 511;--450
+  sustainFactor 			: IN INTEGER  RANGE 0 to 511;--50
+  releaseFactor 			: IN INTEGER  RANGE 0 to 511;--260
+  attackRounder			: IN INTEGER  RANGE 0 to 128;--80
+  decayRounder				: IN INTEGER  RANGE 0 to 32;--4
+  releaseRounder			: IN INTEGER  RANGE 0 to 32;--4
+  
   test_led					: out std_logic;
   out_note 					: out std_logic_vector(15 downto 0)
 );
@@ -55,16 +59,17 @@ signal out_n : std_logic_vector(31 downto 0);
 		prescaler_1=>slowClk) ;
 
 	out_n <= in_note * amplifier;
-	out_note	<= out_n(31 downto 16);
+	out_note(14 downto 0)	<= out_n(31 downto 17);
+	out_note(15 downto 15)   <= "0";
 	--out_note <= in_note when en ='1' else (others => '0');
-	test_led <= '1' when amplifier > 0 else '0';
+	test_led <= '1' when amplifier > 450 else '0';
 		
 	PROCESS (slowClk, resetN)
 	--constant attackFactor : integer := 2500 ;
 	--constant decayFactor : integer := 300 ;
 	--constant sustainFactor : integer := 180 ;
 	--constant releaseFactor : integer := 220 ;
-	variable rounder : integer range 0 to 4095;
+	variable rounder : integer range 0 to 8191;
 		begin
 			if resetN = '0' then
 				amplifier <= (others => '0');
@@ -79,7 +84,7 @@ signal out_n : std_logic_vector(31 downto 0);
 							amplifier <= (others => '0');
 						end if;
 					when attack =>
-						rounder := rounder + 100;
+						rounder := rounder + attackRounder;
 						if en = '0' then
 							state <= decayReleased;
 							rounder := 0;
@@ -90,7 +95,7 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;
 					when decayPressed =>
-						rounder := rounder + 1;
+						rounder := rounder + decayRounder;
 						if en = '0' then
 							state <= sustainReleased;
 							rounder := 0;
@@ -101,7 +106,7 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;	
 					when decayReleased =>
-						rounder := rounder + 1;
+						rounder := rounder + decayRounder;
 						if en = '1' then
 							state <= attack;
 							rounder := 0;
@@ -112,7 +117,7 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;	
 					when sustainPressed =>
-						rounder := rounder + 1;
+						rounder := 0;
 						if en = '0' then
 							state <= releaseReleased;
 							rounder := 0;
@@ -123,7 +128,7 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;	
 					when sustainReleased =>
-						rounder := rounder + 1;
+						rounder := 0;
 						if en = '1' then
 							state <= attack;
 							rounder := 0;
@@ -134,7 +139,7 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;
 					when releasePressed =>
-						rounder := rounder + 1;
+						rounder := rounder + releaseRounder;
 						if en = '0' then
 							state <= releaseReleased;
 							rounder := 0;
@@ -145,7 +150,7 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;
 					when releaseReleased =>
-						rounder := rounder + 1;
+						rounder := rounder + releaseRounder;
 						if en = '1' then
 							state <= attack;
 							rounder := 0;

@@ -214,9 +214,6 @@ set_location_assignment PIN_V23 -to ADC_DOUT
 set_location_assignment PIN_W24 -to ADC_SCLK
 set_location_assignment PIN_Y24 -to AUD_I2C_SCLK
 set_location_assignment PIN_Y23 -to AUD_I2C_SDAT
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name QXP_FILE sound/audio_codec_controller.qxp
 set_global_assignment -name VHDL_FILE sound_manager/SinTable.vhd
 set_global_assignment -name VHDL_FILE sound_manager/prescaler.vhd
@@ -233,8 +230,14 @@ set_global_assignment -name BDF_FILE kbd_logic/kbd_logic.bdf
 set_global_assignment -name BDF_FILE sound_manager/sound_manager.bdf
 set_global_assignment -name VHDL_FILE sound_manager/adsr.vhd
 set_global_assignment -name VHDL_FILE sound_manager/addr_note.vhd
-set_global_assignment -name QIP_FILE attack_factor.qip
-set_global_assignment -name QIP_FILE decay_factor.qip
-set_global_assignment -name QIP_FILE sustain_factor.qip
-set_global_assignment -name QIP_FILE release_factor.qip
+set_global_assignment -name QIP_FILE lpm_constants/attackFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/decayFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/sustainFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/releaseFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/attackRounderLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/decayRounderLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/releaseRounderLPM.qip
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
