@@ -4,75 +4,135 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "MICROPHON_LED",
+					"name" : "out_enable",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_DACDAT",
+					"name" : "duration[0]",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_XCK",
+					"name" : "duration[1]",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_I2C_SCLK",
+					"name" : "duration[2]",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_I2C_SDAT",
+					"name" : "duration[3]",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_BCLK",
+					"name" : "duration[4]",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_DACLRCK",
+					"name" : "duration[5]",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_ADCDAT",
+					"name" : "duration[6]",
 					"strict" : false
 				},
 				{
-					"name" : "MICROPHON_ON",
+					"name" : "duration[7]",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_ADCLRCK",
+					"name" : "duration[8]",
 					"strict" : false
 				},
 				{
-					"name" : "test_led_out",
+					"name" : "duration[9]",
 					"strict" : false
 				},
 				{
-					"name" : "led[0]",
+					"name" : "hits[0]",
 					"strict" : false
 				},
 				{
-					"name" : "led[1]",
+					"name" : "hits[1]",
 					"strict" : false
 				},
 				{
-					"name" : "led[2]",
+					"name" : "hits[2]",
 					"strict" : false
 				},
 				{
-					"name" : "led[3]",
+					"name" : "hits[3]",
 					"strict" : false
 				},
 				{
-					"name" : "led[4]",
+					"name" : "hits[4]",
 					"strict" : false
 				},
 				{
-					"name" : "led[5]",
+					"name" : "hits[5]",
 					"strict" : false
 				},
 				{
-					"name" : "led[6]",
+					"name" : "hits[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hits[7]",
+					"strict" : false
+				},
+				{
+					"name" : "hits[8]",
+					"strict" : false
+				},
+				{
+					"name" : "hits[9]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[2]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[1]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[0]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[5]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[4]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[3]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[11]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[10]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[9]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[8]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[7]",
+					"strict" : false
+				},
+				{
+					"name" : "song_notes[6]",
 					"strict" : false
 				},
 				{
@@ -84,11 +144,55 @@
 					"strict" : false
 				},
 				{
-					"name" : "KBD_DAT",
+					"name" : "enable",
 					"strict" : false
 				},
 				{
-					"name" : "KBD_CLK",
+					"name" : "keyboard_notes[11]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[10]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[9]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[8]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[7]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[6]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[5]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[4]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[3]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[2]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[1]",
+					"strict" : false
+				},
+				{
+					"name" : "keyboard_notes[0]",
 					"strict" : false
 				}
 			]

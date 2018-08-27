@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSXFC6D6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY top
+set_global_assignment -name TOP_LEVEL_ENTITY hit_detector
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:37:37  AUGUST 23, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
@@ -90,6 +90,45 @@ set_location_assignment PIN_AA19 -to d_bitrec_up[5]
 set_location_assignment PIN_AD20 -to d_bitrec_up[6]
 set_location_assignment PIN_AB25 -to KBD_CLK
 set_location_assignment PIN_AA25 -to KBD_DAT
+set_location_assignment PIN_AJ29 -to AUD_ADCDAT
+set_location_assignment PIN_AH30 -to AUD_XCK
+set_location_assignment PIN_AH29 -to AUD_ADCLRCK
+set_location_assignment PIN_AF30 -to AUD_BCLK
+set_location_assignment PIN_AF29 -to AUD_DACDAT
+set_location_assignment PIN_AG30 -to AUD_DACLRCK
+set_location_assignment PIN_AC22 -to test_led_out
+set_location_assignment PIN_Y21 -to ADC_CONVST
+set_location_assignment PIN_W22 -to ADC_DIN
+set_location_assignment PIN_V23 -to ADC_DOUT
+set_location_assignment PIN_W24 -to ADC_SCLK
+set_location_assignment PIN_Y24 -to AUD_I2C_SCLK
+set_location_assignment PIN_Y23 -to AUD_I2C_SDAT
+set_global_assignment -name VHDL_FILE song_manager/hit_detector.vhd
+set_global_assignment -name BDF_FILE score_manager/score_manager.bdf
+set_global_assignment -name VHDL_FILE score_manager/score_counter.vhd
+set_global_assignment -name QXP_FILE sound/audio_codec_controller.qxp
+set_global_assignment -name VHDL_FILE sound_manager/SinTable.vhd
+set_global_assignment -name VHDL_FILE sound_manager/prescaler.vhd
+set_global_assignment -name VHDL_FILE sound_manager/addr_counter.vhd
+set_global_assignment -name VHDL_FILE kbd_logic/kbd_to_key.VHD
+set_global_assignment -name VHDL_FILE hexss.vhd
+set_global_assignment -name BDF_FILE sound/experiment_sinus_generator.bdf
+set_global_assignment -name VHDL_FILE kbd/lpf.vhd
+set_global_assignment -name BDF_FILE kbd/KBDINTF.bdf
+set_global_assignment -name VHDL_FILE kbd/byterec.vhd
+set_global_assignment -name VHDL_FILE kbd/bitrec.vhd
+set_global_assignment -name BDF_FILE top.bdf
+set_global_assignment -name BDF_FILE kbd_logic/kbd_logic.bdf
+set_global_assignment -name BDF_FILE sound_manager/sound_manager.bdf
+set_global_assignment -name VHDL_FILE sound_manager/adsr.vhd
+set_global_assignment -name VHDL_FILE sound_manager/addr_note.vhd
+set_global_assignment -name QIP_FILE attack_factor.qip
+set_global_assignment -name QIP_FILE decay_factor.qip
+set_global_assignment -name QIP_FILE sustain_factor.qip
+set_global_assignment -name QIP_FILE release_factor.qip
+set_global_assignment -name BDF_FILE song_manager/song_manager.bdf
+set_global_assignment -name VHDL_FILE song_manager/songs_player.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to break
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to d_bitrec_down[0]
@@ -134,8 +173,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to type[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to type[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to type[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to type[8]
-set_location_assignment PIN_AJ29 -to AUD_ADCDAT
-set_location_assignment PIN_AH30 -to AUD_XCK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_DACDAT
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_I2C_SCLK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_I2C_SDAT
@@ -147,10 +184,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led[4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led[6]
-set_location_assignment PIN_AH29 -to AUD_ADCLRCK
-set_location_assignment PIN_AF30 -to AUD_BCLK
-set_location_assignment PIN_AF29 -to AUD_DACDAT
-set_location_assignment PIN_AG30 -to AUD_DACLRCK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to adcdata_left[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to adcdata_left[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to adcdata_left[2]
@@ -206,35 +239,27 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to test_led[13]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to test_led[14]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to test_led[15]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to test_led
-set_location_assignment PIN_AC22 -to test_led_out
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to test_led_out
-set_location_assignment PIN_Y21 -to ADC_CONVST
-set_location_assignment PIN_W22 -to ADC_DIN
-set_location_assignment PIN_V23 -to ADC_DOUT
-set_location_assignment PIN_W24 -to ADC_SCLK
-set_location_assignment PIN_Y24 -to AUD_I2C_SCLK
-set_location_assignment PIN_Y23 -to AUD_I2C_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to enable
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name QXP_FILE sound/audio_codec_controller.qxp
-set_global_assignment -name VHDL_FILE sound_manager/SinTable.vhd
-set_global_assignment -name VHDL_FILE sound_manager/prescaler.vhd
-set_global_assignment -name VHDL_FILE sound_manager/addr_counter.vhd
-set_global_assignment -name VHDL_FILE kbd_logic/kbd_to_key.VHD
-set_global_assignment -name VHDL_FILE hexss.vhd
-set_global_assignment -name BDF_FILE sound/experiment_sinus_generator.bdf
-set_global_assignment -name VHDL_FILE kbd/lpf.vhd
-set_global_assignment -name BDF_FILE kbd/KBDINTF.bdf
-set_global_assignment -name VHDL_FILE kbd/byterec.vhd
-set_global_assignment -name VHDL_FILE kbd/bitrec.vhd
-set_global_assignment -name BDF_FILE top.bdf
-set_global_assignment -name BDF_FILE kbd_logic/kbd_logic.bdf
-set_global_assignment -name BDF_FILE sound_manager/sound_manager.bdf
-set_global_assignment -name VHDL_FILE sound_manager/adsr.vhd
-set_global_assignment -name VHDL_FILE sound_manager/addr_note.vhd
-set_global_assignment -name QIP_FILE attack_factor.qip
-set_global_assignment -name QIP_FILE decay_factor.qip
-set_global_assignment -name QIP_FILE sustain_factor.qip
-set_global_assignment -name QIP_FILE release_factor.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform2.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
