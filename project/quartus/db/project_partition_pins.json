@@ -4,135 +4,51 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "out_enable",
+					"name" : "VGA_VS",
 					"strict" : false
 				},
 				{
-					"name" : "duration[0]",
+					"name" : "VGA_HS",
 					"strict" : false
 				},
 				{
-					"name" : "duration[1]",
+					"name" : "VGA_CLK",
 					"strict" : false
 				},
 				{
-					"name" : "duration[2]",
+					"name" : "VGA_BLANK_N",
 					"strict" : false
 				},
 				{
-					"name" : "duration[3]",
+					"name" : "VGA_B[7]",
 					"strict" : false
 				},
 				{
-					"name" : "duration[4]",
+					"name" : "VGA_B[6]",
 					"strict" : false
 				},
 				{
-					"name" : "duration[5]",
+					"name" : "VGA_G[7]",
 					"strict" : false
 				},
 				{
-					"name" : "duration[6]",
+					"name" : "VGA_G[6]",
 					"strict" : false
 				},
 				{
-					"name" : "duration[7]",
+					"name" : "VGA_G[5]",
 					"strict" : false
 				},
 				{
-					"name" : "duration[8]",
+					"name" : "VGA_R[7]",
 					"strict" : false
 				},
 				{
-					"name" : "duration[9]",
+					"name" : "VGA_R[6]",
 					"strict" : false
 				},
 				{
-					"name" : "hits[0]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[1]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[2]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[3]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[4]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[5]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[6]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[7]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[8]",
-					"strict" : false
-				},
-				{
-					"name" : "hits[9]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[2]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[1]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[0]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[5]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[4]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[3]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[11]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[10]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[9]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[8]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[7]",
-					"strict" : false
-				},
-				{
-					"name" : "song_notes[6]",
+					"name" : "VGA_R[5]",
 					"strict" : false
 				},
 				{
@@ -141,58 +57,6 @@
 				},
 				{
 					"name" : "resetN",
-					"strict" : false
-				},
-				{
-					"name" : "enable",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[11]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[10]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[9]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[8]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[7]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[6]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[5]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[4]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[3]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[2]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[1]",
-					"strict" : false
-				},
-				{
-					"name" : "keyboard_notes[0]",
 					"strict" : false
 				}
 			]

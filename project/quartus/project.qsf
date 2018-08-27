@@ -39,10 +39,10 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSXFC6D6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY hit_detector
+set_global_assignment -name TOP_LEVEL_ENTITY vga_test
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:37:37  AUGUST 23, 2018"
-set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Standard Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -103,6 +103,37 @@ set_location_assignment PIN_V23 -to ADC_DOUT
 set_location_assignment PIN_W24 -to ADC_SCLK
 set_location_assignment PIN_Y24 -to AUD_I2C_SCLK
 set_location_assignment PIN_Y23 -to AUD_I2C_SDAT
+set_location_assignment PIN_AK22 -to VGA_BLANK_N
+set_location_assignment PIN_AJ21 -to VGA_B[0]
+set_location_assignment PIN_AJ20 -to VGA_B[1]
+set_location_assignment PIN_AH20 -to VGA_B[2]
+set_location_assignment PIN_AJ19 -to VGA_B[3]
+set_location_assignment PIN_AH19 -to VGA_B[4]
+set_location_assignment PIN_AJ17 -to VGA_B[5]
+set_location_assignment PIN_AJ16 -to VGA_B[6]
+set_location_assignment PIN_AK16 -to VGA_B[7]
+set_location_assignment PIN_AK21 -to VGA_CLK
+set_location_assignment PIN_AK26 -to VGA_G[0]
+set_location_assignment PIN_AJ25 -to VGA_G[1]
+set_location_assignment PIN_AH25 -to VGA_G[2]
+set_location_assignment PIN_AK24 -to VGA_G[3]
+set_location_assignment PIN_AJ24 -to VGA_G[4]
+set_location_assignment PIN_AH24 -to VGA_G[5]
+set_location_assignment PIN_AK23 -to VGA_G[6]
+set_location_assignment PIN_AH23 -to VGA_G[7]
+set_location_assignment PIN_AK19 -to VGA_HS
+set_location_assignment PIN_AK29 -to VGA_R[0]
+set_location_assignment PIN_AK28 -to VGA_R[1]
+set_location_assignment PIN_AK27 -to VGA_R[2]
+set_location_assignment PIN_AJ27 -to VGA_R[3]
+set_location_assignment PIN_AH27 -to VGA_R[4]
+set_location_assignment PIN_AF26 -to VGA_R[5]
+set_location_assignment PIN_AG26 -to VGA_R[6]
+set_location_assignment PIN_AJ26 -to VGA_R[7]
+set_location_assignment PIN_AJ22 -to VGA_SYNC_N
+set_location_assignment PIN_AK18 -to VGA_VS
+set_global_assignment -name VHDL_FILE objects_mux.vhd
+set_global_assignment -name VHDL_FILE VGA_Controller.vhd
 set_global_assignment -name VHDL_FILE song_manager/hit_detector.vhd
 set_global_assignment -name BDF_FILE score_manager/score_manager.bdf
 set_global_assignment -name VHDL_FILE score_manager/score_counter.vhd
@@ -129,6 +160,17 @@ set_global_assignment -name QIP_FILE release_factor.qip
 set_global_assignment -name BDF_FILE song_manager/song_manager.bdf
 set_global_assignment -name VHDL_FILE song_manager/songs_player.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform2.vwf
+set_global_assignment -name BDF_FILE vga_test.bdf
+set_global_assignment -name VHDL_FILE background_draw.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to break
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to d_bitrec_down[0]
@@ -253,13 +295,4 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[9]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[10]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout[11]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to enable
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform.vwf
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform1.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE output_files/Waveform2.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
