@@ -1,7 +1,7 @@
 # do project.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:30:55 on Aug 27,2018
+# Start time: 13:27:24 on Aug 29,2018
 # vcom -work work project.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -13,26 +13,26 @@
 # -- Loading package altera_lnsim_components
 # -- Loading package cyclonev_atom_pack
 # -- Loading package cyclonev_components
-# -- Compiling entity hit_detector
-# -- Compiling architecture structure of hit_detector
-# End time: 16:30:55 on Aug 27,2018, Elapsed time: 0:00:00
+# -- Compiling entity songs_player
+# -- Compiling architecture structure of songs_player
+# End time: 13:27:24 on Aug 29,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:30:55 on Aug 27,2018
-# vcom -work work output_files/Waveform2.vwf.vht 
+# Start time: 13:27:24 on Aug 29,2018
+# vcom -work work Waveform.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity hit_detector_vhd_vec_tst
-# -- Compiling architecture hit_detector_arch of hit_detector_vhd_vec_tst
-# End time: 16:30:56 on Aug 27,2018, Elapsed time: 0:00:01
+# -- Compiling entity songs_player_vhd_vec_tst
+# -- Compiling architecture songs_player_arch of songs_player_vhd_vec_tst
+# End time: 13:27:24 on Aug 29,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.hit_detector_vhd_vec_tst 
-# Start time: 16:30:56 on Aug 27,2018
+# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.songs_player_vhd_vec_tst 
+# Start time: 13:27:24 on Aug 29,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.hit_detector_vhd_vec_tst(hit_detector_arch)
+# Loading work.songs_player_vhd_vec_tst(songs_player_arch)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading altera.dffeas_pack
@@ -40,15 +40,14 @@
 # Loading altera_lnsim.altera_lnsim_components
 # Loading cyclonev.cyclonev_atom_pack(body)
 # Loading cyclonev.cyclonev_components
-# Loading work.hit_detector(structure)
+# Loading work.songs_player(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cyclonev.cyclonev_io_obuf(arch)
 # Loading cyclonev.cyclonev_io_ibuf(arch)
-# Loading cyclonev.cyclonev_clkena(behavior)
-# Loading altera.dffeas(vital_dffeas)
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
-# ** Warning: Design size of 23084 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Loading altera.dffeas(vital_dffeas)
+# ** Warning: Design size of 34814 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
 # after#34
-# End time: 16:30:56 on Aug 27,2018, Elapsed time: 0:00:00
+# End time: 13:27:26 on Aug 29,2018, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1

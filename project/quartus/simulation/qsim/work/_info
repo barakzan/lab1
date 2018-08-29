@@ -85,7 +85,7 @@ R19
 Ahit_detector_arch
 R8
 R9
-Z26 DEx4 work 24 hit_detector_vhd_vec_tst 0 22 mALRHb;eP2iBb^h1fc@;j0
+DEx4 work 24 hit_detector_vhd_vec_tst 0 22 mALRHb;eP2iBb^h1fc@;j0
 l57
 L34
 V:L1M19WckjFo;fCaZJl7L1
@@ -101,7 +101,7 @@ R25
 R18
 R19
 Esongs_player
-Z27 w1535360036
+Z26 w1535538443
 R2
 R3
 R4
@@ -111,18 +111,18 @@ R7
 R8
 R9
 R10
-R0
+Z27 dC:/electricalENG/lab/lab1h/project/quartus/simulation/qsim
 R11
 R12
 l0
 L39
-V7z4l;ZU0WP6zBl[`XPZ420
-!s100 njZDN^in=kczEfEJFD9Lj2
+V?AW4HCd2BlA_]D0HXam0V3
+!s100 j7MG^5>@lX`:3LY<Z80EC3
 R13
 32
-Z28 !s110 1535360037
+Z28 !s110 1535538444
 !i10b 1
-Z29 !s108 1535360037.000000
+Z29 !s108 1535538444.000000
 R16
 R17
 !i113 1
@@ -138,11 +138,11 @@ R7
 R8
 R9
 R10
-DEx4 work 12 songs_player 0 22 7z4l;ZU0WP6zBl[`XPZ420
-l182
-L66
-V@l=Ibg?zUXz@HmP;R<GH23
-!s100 oR?a3KjX[oNlnKncc=^HV3
+DEx4 work 12 songs_player 0 22 ?AW4HCd2BlA_]D0HXam0V3
+l350
+L53
+V6z@Fe>;FL6kQ[a>lWGGo`3
+!s100 >kk0k=nZAeKD3=I=E9c`=3
 R13
 32
 R28
@@ -154,10 +154,10 @@ R17
 R18
 R19
 Esongs_player_vhd_vec_tst
-Z30 w1535360033
+Z30 w1535538442
 R8
 R9
-R0
+R27
 Z31 8Waveform.vwf.vht
 Z32 FWaveform.vwf.vht
 l0
@@ -166,29 +166,29 @@ V`fS4f1EPDTFUa;`m[D52f3
 !s100 0094FNzzN5IKA:;M`WXd31
 R13
 32
-Z33 !s110 1535360038
+R28
 !i10b 1
-Z34 !s108 1535360038.000000
-Z35 !s90 -work|work|Waveform.vwf.vht|
-Z36 !s107 Waveform.vwf.vht|
+R29
+Z33 !s90 -work|work|Waveform.vwf.vht|
+Z34 !s107 Waveform.vwf.vht|
 !i113 1
 R18
 R19
 Asongs_player_arch
 R8
 R9
-DEx4 work 24 songs_player_vhd_vec_tst 0 22 `fS4f1EPDTFUa;`m[D52f3
-l49
+Z35 DEx4 work 24 songs_player_vhd_vec_tst 0 22 `fS4f1EPDTFUa;`m[D52f3
+l59
 L34
-V7Hk0]K:?MTI9QdFQ`=0[k0
-!s100 _]GAfbn7ebmWHMFnACC9i3
+VmfHz2ec;m[NDHC4Q0ai:N2
+!s100 6K_:[LbZ`PMJ`PWDe^W:52
 R13
 32
-R33
+R28
 !i10b 1
+R29
+R33
 R34
-R35
-R36
 !i113 1
 R18
 R19

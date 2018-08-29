@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off project -c project --vector_source="C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/output_files/Waveform2.vwf" --testbench_file="C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/output_files/Waveform2.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off project -c project --vector_source="C:/electricalENG/lab/lab1h/project/quartus/Waveform.vwf" --testbench_file="C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim/Waveform.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -26,23 +26,18 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: devices manufactured by Intel and sold by Intel or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Mon Aug 27 16:30:50 2018
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off project -c project --vector_source=C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/output_files/Waveform2.vwf --testbench_file=C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/output_files/Waveform2.vwf.vht
+    Info: Processing started: Wed Aug 29 13:27:21 2018
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off project -c project --vector_source=C:/electricalENG/lab/lab1h/project/quartus/Waveform.vwf --testbench_file=C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim/Waveform.vwf.vht
+Info (119006): Selected device 5CSXFC6D6F31C6 for design "project"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
-bench files
-Info (201002): Generated VHDL Test Bench File C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/output_files/Waveform2.vwf.vht for simulation
-Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 24 warnings
-    Info: Peak virtual memory: 4727 megabytes
-    Info: Processing ended: Mon Aug 27 16:30:51 2018
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+noring output pin "dout_sound[4]" in vector source file when writing test bench files
 
 Completed successfully. 
 
 **** Generating the functional simulation netlist ****
 
-quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/" project -c project
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim/" project -c project
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -61,21 +56,22 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: devices manufactured by Intel and sold by Intel or its 
     Info: authorized distributors.  Please refer to the applicable 
     Info: agreement for further details.
-    Info: Processing started: Mon Aug 27 16:30:52 2018
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/ project -c project
+    Info: Processing started: Wed Aug 29 13:27:22 2018
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim/ project -c project
+Info (119006): Selected device 5CSXFC6D6F31C6 for design "project"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file project.vho in folder "C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file project.vho in folder "C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4734 megabytes
-    Info: Processing ended: Mon Aug 27 16:30:54 2018
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 4732 megabytes
+    Info: Processing ended: Wed Aug 29 13:27:23 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
 
 **** Generating the ModelSim .do script ****
 
-C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/project.do generated.
+C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim/project.do generated.
 
 Completed successfully. 
 
@@ -87,12 +83,12 @@ Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
 
 # 10.5b
 
-# do project.do
 
+# do project.do
 # ** Warning: (vlib-34) Library already exists at "work".
 
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:30:55 on Aug 27,2018
+# Start time: 13:27:24 on Aug 29,2018
 # vcom -work work project.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -104,31 +100,29 @@ Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
 # -- Loading package altera_lnsim_components
 # -- Loading package cyclonev_atom_pack
 # -- Loading package cyclonev_components
+# -- Compiling entity songs_player
+# -- Compiling architecture structure of songs_player
 
-# -- Compiling entity hit_detector
-# -- Compiling architecture structure of hit_detector
-
-# End time: 16:30:55 on Aug 27,2018, Elapsed time: 0:00:00
+# End time: 13:27:24 on Aug 29,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:30:55 on Aug 27,2018
-# vcom -work work output_files/Waveform2.vwf.vht 
+# Start time: 13:27:24 on Aug 29,2018
+# vcom -work work Waveform.vwf.vht 
 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity hit_detector_vhd_vec_tst
-# -- Compiling architecture hit_detector_arch of hit_detector_vhd_vec_tst
-
-# End time: 16:30:56 on Aug 27,2018, Elapsed time: 0:00:01
+# -- Compiling entity songs_player_vhd_vec_tst
+# -- Compiling architecture songs_player_arch of songs_player_vhd_vec_tst
+# End time: 13:27:24 on Aug 29,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
-# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.hit_detector_vhd_vec_tst 
-# Start time: 16:30:56 on Aug 27,2018
+# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.songs_player_vhd_vec_tst 
+# Start time: 13:27:24 on Aug 29,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.hit_detector_vhd_vec_tst(hit_detector_arch)
+# Loading work.songs_player_vhd_vec_tst(songs_player_arch)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading altera.dffeas_pack
@@ -136,31 +130,30 @@ Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
 # Loading altera_lnsim.altera_lnsim_components
 # Loading cyclonev.cyclonev_atom_pack(body)
 # Loading cyclonev.cyclonev_components
-# Loading work.hit_detector(structure)
+# Loading work.songs_player(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cyclonev.cyclonev_io_obuf(arch)
 # Loading cyclonev.cyclonev_io_ibuf(arch)
-# Loading cyclonev.cyclonev_clkena(behavior)
-# Loading altera.dffeas(vital_dffeas)
 # Loading cyclonev.cyclonev_lcell_comb(vital_lcell_comb)
-# ** Warning: Design size of 23084 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Loading altera.dffeas(vital_dffeas)
+# ** Warning: Design size of 34814 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
 # after#34
 
-# End time: 16:30:56 on Aug 27,2018, Elapsed time: 0:00:00
+# End time: 13:27:26 on Aug 29,2018, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/output_files/Waveform2.vwf...
+Reading C:/electricalENG/lab/lab1h/project/quartus/Waveform.vwf...
 
-Reading C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/project.msim.vcd...
+Reading C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim/project.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/boaz/Dropbox/study/lab_electric_1/lab1/project/quartus/simulation/qsim/project_20180827163057.sim.vwf
+Writing the resulting VWF to C:/electricalENG/lab/lab1h/project/quartus/simulation/qsim/project_20180829132727.sim.vwf
 
 Finished VCD to VWF conversion.
 
