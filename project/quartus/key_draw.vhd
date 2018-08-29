@@ -115,12 +115,13 @@ begin
 	-- defining three rectangles 
 
 	process ( oCoord_X,oCoord_y )
+	
 	begin 
-		drawing_request <= '0';
 		
 		if RESETn = '0' OR keys = SILENCE then
 			drawing_request <= '0';
-		else
+		elsif rising_edge(clk) then
+			drawing_request <= '0';
 			if keys(0) = '1' then
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_note8 AND oCoord_X <= start_black6)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note8 AND oCoord_X <= end_note8)) then
