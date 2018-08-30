@@ -46,10 +46,10 @@ begin
 				cnt := cnt + 1;
 			end if;
 		end loop ens;
-		if cnt > 0 then
-			numOfNotes <= cnt;
+		if cnt > 1 then
+			cnt := ("0" & cnt(3 downto 1)) + "0010";
 		else
-			numOfNotes <= "0001";
+			numOfNotes <= "0011";
 		end if;
 		--sum <= std_logic_vector(  to_unsigned(to_integer(unsigned(note1 + note2 + note3 + note4 + note5 + note6 + note7)) / 4 ,16));
 		sum <=note1 + note2 + note3 + note4 + note5 + note6 + note7;

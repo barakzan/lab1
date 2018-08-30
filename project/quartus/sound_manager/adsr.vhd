@@ -59,10 +59,10 @@ signal out_n : std_logic_vector(31 downto 0);
 		prescaler_1=>slowClk) ;
 
 	out_n <= in_note * amplifier;
-	out_note(14 downto 0)	<= out_n(31 downto 17);
-	out_note(15 downto 15)   <= "0";
+	out_note(13 downto 0)	<= out_n(31 downto 18);
+	out_note(15 downto 14)   <= "00";
 	--out_note <= in_note when en ='1' else (others => '0');
-	test_led <= '1' when amplifier > 450 else '0';
+	test_led <= '1' when amplifier > 950 else '0';
 		
 	PROCESS (slowClk, resetN)
 	--constant attackFactor : integer := 2500 ;
@@ -84,7 +84,9 @@ signal out_n : std_logic_vector(31 downto 0);
 							amplifier <= (others => '0');
 						end if;
 					when attack =>
-						rounder := rounder + attackRounder;
+						if rounder <= (attackRounder / 2) then
+							rounder := rounder + attackRounder;
+						end if;
 						if en = '0' then
 							state <= decayReleased;
 							rounder := 0;
@@ -95,7 +97,9 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;
 					when decayPressed =>
-						rounder := rounder + decayRounder;
+						if rounder <= (decayRounder / 4) then
+							rounder := rounder + decayRounder;
+						end if;
 						if en = '0' then
 							state <= sustainReleased;
 							rounder := 0;
@@ -106,9 +110,12 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;	
 					when decayReleased =>
-						rounder := rounder + decayRounder;
+						if rounder <= (decayRounder / 4) then
+							rounder := rounder + decayRounder;
+						end if;
 						if en = '1' then
 							state <= attack;
+							amplifier <= (others => '0');
 							rounder := 0;
 						elsif amplifier > 16000 then
 							amplifier <= amplifier - decayFactor + rounder;
@@ -131,6 +138,7 @@ signal out_n : std_logic_vector(31 downto 0);
 						rounder := 0;
 						if en = '1' then
 							state <= attack;
+							amplifier <= (others => '0');
 							rounder := 0;
 						elsif amplifier > 8000 then
 							amplifier <= amplifier - sustainFactor + rounder;
@@ -139,7 +147,9 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;
 					when releasePressed =>
-						rounder := rounder + releaseRounder;
+						if rounder <= (releaseFactor / 2) then
+							rounder := rounder + releaseRounder;
+						end if;
 						if en = '0' then
 							state <= releaseReleased;
 							rounder := 0;
@@ -150,9 +160,12 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;
 					when releaseReleased =>
-						rounder := rounder + releaseRounder;
+						if rounder <= (releaseFactor / 2) then
+							rounder := rounder + releaseRounder;
+						end if;
 						if en = '1' then
 							state <= attack;
+							amplifier <= (others => '0');
 							rounder := 0;
 						elsif amplifier > releaseFactor then
 							amplifier <= amplifier - releaseFactor + rounder;
