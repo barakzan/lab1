@@ -13,13 +13,13 @@ ENTITY addr_note IS
 PORT (
 			clk				: in std_logic;
 			enables			: 	in std_logic_vector(6 downto 0);
+			note0				: 	in std_logic_vector(15 downto 0);
 			note1				: 	in std_logic_vector(15 downto 0);
 			note2				: 	in std_logic_vector(15 downto 0);
 			note3				: 	in std_logic_vector(15 downto 0);
 			note4				: 	in std_logic_vector(15 downto 0);
 			note5				: 	in std_logic_vector(15 downto 0);
 			note6				: 	in std_logic_vector(15 downto 0);
-			note7				: 	in std_logic_vector(15 downto 0);
 			addr				: 	out std_logic_vector(15 downto 0)
 		);
 
@@ -52,7 +52,7 @@ begin
 			numOfNotes <= "0011";
 		end if;
 		--sum <= std_logic_vector(  to_unsigned(to_integer(unsigned(note1 + note2 + note3 + note4 + note5 + note6 + note7)) / 4 ,16));
-		sum <=note1 + note2 + note3 + note4 + note5 + note6 + note7;
+		sum <= note0 + note1 + note2 + note3 + note4 + note5 + note6;
 		end if;
 	end process;
 end addr_note_arch ;

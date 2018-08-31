@@ -48,16 +48,16 @@ agreement for further details.
 	(port
 		(pt 184 32)
 		(output)
-		(text "test_led" (rect 0 0 48 19)(font "Intel Clear" (font_size 8)))
-		(text "test_led" (rect 115 27 163 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 184 32)(pt 168 32))
+		(text "sound[15..0]" (rect 0 0 74 19)(font "Intel Clear" (font_size 8)))
+		(text "sound[15..0]" (rect 89 27 163 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 32)(pt 168 32)(line_width 3))
 	)
 	(port
 		(pt 184 48)
 		(output)
-		(text "sound[15..0]" (rect 0 0 74 19)(font "Intel Clear" (font_size 8)))
-		(text "sound[15..0]" (rect 89 43 163 62)(font "Intel Clear" (font_size 8)))
-		(line (pt 184 48)(pt 168 48)(line_width 3))
+		(text "test_led" (rect 0 0 48 19)(font "Intel Clear" (font_size 8)))
+		(text "test_led" (rect 115 43 163 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 184 48)(pt 168 48))
 	)
 	(drawing
 		(rectangle (rect 16 16 168 80))
