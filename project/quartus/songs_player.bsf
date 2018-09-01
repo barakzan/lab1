@@ -21,7 +21,7 @@ agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 184 128)
+	(rect 16 16 224 128)
 	(text "songs_player" (rect 5 0 59 12)(font "Arial" ))
 	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
@@ -46,13 +46,34 @@ agreement for further details.
 		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
-		(pt 168 32)
+		(pt 0 80)
+		(input)
+		(text "delay[6..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "delay[6..0]" (rect 21 75 62 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 208 32)
 		(output)
-		(text "dout[11..0]" (rect 0 0 38 12)(font "Arial" ))
-		(text "dout[11..0]" (rect 109 27 147 39)(font "Arial" ))
-		(line (pt 168 32)(pt 152 32)(line_width 3))
+		(text "new_note" (rect 0 0 37 12)(font "Arial" ))
+		(text "new_note" (rect 150 27 187 39)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 1))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "dout_draw[11..0]" (rect 0 0 63 12)(font "Arial" ))
+		(text "dout_draw[11..0]" (rect 124 43 187 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48)(line_width 3))
+	)
+	(port
+		(pt 208 64)
+		(output)
+		(text "dout_sound[11..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "dout_sound[11..0]" (rect 119 59 187 71)(font "Arial" ))
+		(line (pt 208 64)(pt 192 64)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 152 96)(line_width 1))
+		(rectangle (rect 16 16 192 96)(line_width 1))
 	)
 )

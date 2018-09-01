@@ -8,9 +8,9 @@ entity songs_player is
    port ( resetN     : in  std_logic                       ;
           clk        : in  std_logic                       ;
           enable	   : in  std_logic                       ;
-			 delay	   : in  std_logic_vector(4 downto 0)   ;
+			 delay	   : in  std_logic_vector(6 downto 0)   ;
 			 new_note   : out std_logic							  ;
-          dout_draw  : out std_logic_vector(11 downto 0)   ;		 
+          dout_draw  : out std_logic_vector(11 downto 0)   ;
 			 dout_sound : out std_logic_vector(11 downto 0)
 		   )  ;
 
@@ -112,6 +112,7 @@ variable addr : integer;
 					addr := addr + 1;
 					new_note <= '1';
 				end if;
+				
 			end if;
 		end if;
 	end process;

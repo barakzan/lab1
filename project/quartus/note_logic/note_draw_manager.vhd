@@ -6,21 +6,41 @@ use ieee.numeric_std.all;
 -- Dudy Nov 13 2017
 
 
-entity key_draw is
+entity note_draw_manager is
 port 	(
 		
 	   CLK      			: in std_logic;
 		RESETn				: in std_logic;
 		oCoord_X 			: in integer;
 		oCoord_Y 			: in integer;
-		keys					: in std_logic_vector(0 to 6);
+		timer_done			: in std_logic;
+		notes					: in std_logic_vector(0 to 6);
+		notes_enable		: in std_logic;
 		drawing_request	: out std_logic;
 		mVGA_RGB				: out std_logic_vector(7 downto 0) --	,//	VGA composite RGB
 	);
-end key_draw;
+end note_draw_manager;
 
-architecture key_draw_arch of key_draw is 
-	constant SILENCE : std_logic_vector(0 to 6) := "0000000";
+architecture note_draw_manager_arch of note_draw_manager is 
+
+	signal mVGA_R	: std_logic_vector(2 downto 0); --	,	 			//	VGA Red[2:0]
+	signal mVGA_G	: std_logic_vector(2 downto 0); --	,	 			//	VGA Green[2:0]
+	signal mVGA_B	: std_logic_vector(1 downto 0); --	,  			//	VGA Blue[1:0]
+	
+	component note_draw is
+	port (
+	   CLK      			: in std_logic;
+		RESETn				: in std_logic;
+		start_X				: in std_logic_vector(8 downto 0);
+		end_X					: in std_logic_vector(8 downto 0);
+		oCoord_X 			: in integer;
+		oCoord_Y 			: in integer;
+		timer_done			: in std_logic;
+		note					: in std_logic;
+		notes_enable		: in std_logic;
+		drawing_request	: out std_logic
+	);
+	end component;
 	
 	constant start_note1 : integer := 6;
 	constant end_note1 : integer := 27;
@@ -98,93 +118,34 @@ architecture key_draw_arch of key_draw is
 	constant start_black15 : integer := end_note20 - 5;
 	constant end_black15 : integer := start_note21 + 6;
 	
-	constant top_y : integer := 381;
-	constant bot_y : integer := 459;
-	
-	constant	x_frame	: integer :=	639;
-	constant	y_frame	: integer :=	479;
-	constant	int_frame	: integer :=	10;
-
-	signal mVGA_R	: std_logic_vector(2 downto 0); --	,	 			//	VGA Red[2:0]
-	signal mVGA_G	: std_logic_vector(2 downto 0); --	,	 			//	VGA Green[2:0]
-	signal mVGA_B	: std_logic_vector(1 downto 0); --	,  			//	VGA Blue[1:0]
+	signal notes_request : std_logic_vector(0 to 6);
 	
 begin
 
-	mVGA_RGB <=  mVGA_R & mVGA_G &  mVGA_B ;
-	-- defining three rectangles 
-
-	process ( oCoord_X,oCoord_y )
+	mVGA_RGB <=  "00011100" ;
 	
-	begin 
-		
-		if RESETn = '0' OR keys = SILENCE then
-			drawing_request <= '0';
-		elsif rising_edge(clk) then
-			drawing_request <= '0';
-			if keys(0) = '1' then
-				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_note8 AND oCoord_X <= start_black6)) OR
-					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note8 AND oCoord_X <= end_note8)) then
-					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
-				end if;
-			end if;
-			if keys(1) = '1' then
-				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black6 AND oCoord_X <= start_black7)) OR
-					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note9 AND oCoord_X <= end_note9)) then
-					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
-				end if;
-			end if;
-			if keys(2) = '1' then
-				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black7 AND oCoord_X <= end_note10)) OR
-					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note10 AND oCoord_X <= end_note10)) then
-					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
-				end if;
-			end if;
-			if keys(3) = '1' then
-				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_note11 AND oCoord_X <= start_black8)) OR
-					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note11 AND oCoord_X <= end_note11)) then
-					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
-				end if;
-			end if;
-			if keys(4) = '1' then
-				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black8 AND oCoord_X <= start_black9)) OR
-					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note12 AND oCoord_X <= end_note12)) then
-					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
-				end if;
-			end if;
-			if keys(5) = '1' then
-				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black9 AND oCoord_X <= start_black10)) OR
-					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note13 AND oCoord_X <= end_note13)) then
-					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
-				end if;
-			end if;
-			if keys(6) = '1' then
-				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black10 AND oCoord_X <= end_note14)) OR
-					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note14 AND oCoord_X <= end_note14)) then
-					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
-				end if;
-			end if;
-		end if;
-	end process ; 
-end key_draw_arch;	
+	drawing_request <= '1' when notes_request > 0 else '0';
+	
+	note1: note_draw port map (CLK, RESETn, std_logic_vector(to_unsigned(start_note8, 9)), 
+				std_logic_vector(to_unsigned(end_note8, 9)), 
+				oCoord_X, oCoord_Y, timer_done, notes(0), notes_enable, notes_request(0));
+	note2: note_draw port map (CLK, RESETn, std_logic_vector(to_unsigned(start_note9, 9)), 
+				std_logic_vector(to_unsigned(end_note9, 9)), 
+				oCoord_X, oCoord_Y, timer_done, notes(1), notes_enable, notes_request(1));
+	note3: note_draw port map (CLK, RESETn, std_logic_vector(to_unsigned(start_note10, 9)), 
+				std_logic_vector(to_unsigned(end_note10, 9)), 
+				oCoord_X, oCoord_Y, timer_done, notes(2), notes_enable, notes_request(2));
+	note4: note_draw port map (CLK, RESETn, std_logic_vector(to_unsigned(start_note11, 9)), 
+				std_logic_vector(to_unsigned(end_note11, 9)), 
+				oCoord_X, oCoord_Y, timer_done, notes(3), notes_enable, notes_request(3));
+	note5: note_draw port map (CLK, RESETn, std_logic_vector(to_unsigned(start_note12, 9)), 
+				std_logic_vector(to_unsigned(end_note12, 9)), 
+				oCoord_X, oCoord_Y, timer_done, notes(4), notes_enable, notes_request(4));
+	note6: note_draw port map (CLK, RESETn, std_logic_vector(to_unsigned(start_note13, 9)), 
+				std_logic_vector(to_unsigned(end_note13, 9)), 
+				oCoord_X, oCoord_Y, timer_done, notes(5), notes_enable, notes_request(5));
+	note7: note_draw port map (CLK, RESETn, std_logic_vector(to_unsigned(start_note14, 9)), 
+				std_logic_vector(to_unsigned(end_note14, 9)), 
+				oCoord_X, oCoord_Y, timer_done, notes(6), notes_enable, notes_request(6));
+
+end note_draw_manager_arch;	
