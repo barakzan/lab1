@@ -48,7 +48,7 @@ module attackRounderLPM (
 	lpm_constant	LPM_CONSTANT_component (
 				.result (sub_wire0));
 	defparam
-		LPM_CONSTANT_component.lpm_cvalue = 80,
+		LPM_CONSTANT_component.lpm_cvalue = 173,
 		LPM_CONSTANT_component.lpm_hint = "ENABLE_RUNTIME_MOD=YES, INSTANCE_NAME=AT_R",
 		LPM_CONSTANT_component.lpm_type = "LPM_CONSTANT",
 		LPM_CONSTANT_component.lpm_width = 8;

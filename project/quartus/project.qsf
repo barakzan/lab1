@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSXFC6D6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY songs_player
+set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:37:37  AUGUST 23, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
@@ -165,9 +165,7 @@ set_global_assignment -name QIP_FILE lpm_constants/attackRounderLPM.qip
 set_global_assignment -name QIP_FILE lpm_constants/decayRounderLPM.qip
 set_global_assignment -name QIP_FILE lpm_constants/releaseRounderLPM.qip
 set_global_assignment -name VHDL_FILE key_draw.vhd
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to break
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to d_bitrec_down[0]
@@ -308,5 +306,38 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[6]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to delay[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to delay[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to delay[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to delay[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to delay[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_draw[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to enable
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to new_note
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

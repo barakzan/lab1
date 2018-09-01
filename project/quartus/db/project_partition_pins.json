@@ -4,71 +4,123 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "new_note",
+					"name" : "MICROPHON_LED",
 					"strict" : false
 				},
 				{
-					"name" : "dout_draw[7]",
+					"name" : "AUD_DACDAT",
 					"strict" : false
 				},
 				{
-					"name" : "dout_draw[8]",
+					"name" : "AUD_XCK",
 					"strict" : false
 				},
 				{
-					"name" : "dout_draw[9]",
+					"name" : "AUD_I2C_SCLK",
 					"strict" : false
 				},
 				{
-					"name" : "dout_draw[10]",
+					"name" : "AUD_I2C_SDAT",
 					"strict" : false
 				},
 				{
-					"name" : "dout_draw[11]",
+					"name" : "AUD_BCLK",
 					"strict" : false
 				},
 				{
-					"name" : "dout_sound[7]",
+					"name" : "AUD_DACLRCK",
 					"strict" : false
 				},
 				{
-					"name" : "dout_sound[8]",
+					"name" : "AUD_ADCDAT",
 					"strict" : false
 				},
 				{
-					"name" : "dout_sound[9]",
+					"name" : "MICROPHON_ON",
 					"strict" : false
 				},
 				{
-					"name" : "dout_sound[10]",
+					"name" : "AUD_ADCLRCK",
 					"strict" : false
 				},
 				{
-					"name" : "dout_sound[11]",
+					"name" : "test_led_out",
 					"strict" : false
 				},
 				{
-					"name" : "enable",
+					"name" : "VGA_VS",
 					"strict" : false
 				},
 				{
-					"name" : "delay[4]",
+					"name" : "VGA_HS",
 					"strict" : false
 				},
 				{
-					"name" : "delay[3]",
+					"name" : "VGA_CLK",
 					"strict" : false
 				},
 				{
-					"name" : "delay[2]",
+					"name" : "VGA_BLANK_N",
 					"strict" : false
 				},
 				{
-					"name" : "delay[0]",
+					"name" : "led[0]",
 					"strict" : false
 				},
 				{
-					"name" : "delay[1]",
+					"name" : "led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "led[2]",
+					"strict" : false
+				},
+				{
+					"name" : "led[3]",
+					"strict" : false
+				},
+				{
+					"name" : "led[4]",
+					"strict" : false
+				},
+				{
+					"name" : "led[5]",
+					"strict" : false
+				},
+				{
+					"name" : "led[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_G[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_G[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_G[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_R[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_R[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_R[5]",
 					"strict" : false
 				},
 				{
@@ -77,6 +129,14 @@
 				},
 				{
 					"name" : "resetN",
+					"strict" : false
+				},
+				{
+					"name" : "KBD_DAT",
+					"strict" : false
+				},
+				{
+					"name" : "KBD_CLK",
 					"strict" : false
 				}
 			]
