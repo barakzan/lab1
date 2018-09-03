@@ -1,13 +1,13 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="bff7c8cebf09ffe2d5df"/>
+    <hash md5_digest_80b="31bb9538e17e5f1ee963"/>
   </project>
   <file_info>
-    <file device="5CSXFC6D6F31C6" path="project.sof" usercode="0xFFFFFFFF"/>
+    <file device="5CGXFC7C7F23C8" path="project.sof" usercode="0xFFFFFFFF"/>
   </file_info>
   <hub_info hub_ir_width="8" ir_width="8" node_addr_width="3" node_count="7"/>
   <node_info>
-    <node hpath="sound_manager:inst3|attackFactorLPM:inst40|lpm_constant:LPM_CONSTANT_component|lpm_constant_3m8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="0" mfg_id="110" node_id="3" sld_node_info="0x10186E00" version="2">
+    <node hpath="sound_manager:inst3|attackFactorLPM:inst40|lpm_constant:LPM_CONSTANT_component|lpm_constant_mn8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="0" mfg_id="110" node_id="3" sld_node_info="0x10186E00" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -18,7 +18,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="4"/>
-        <parameter name="cvalue" type="unknown" value="111011100000"/>
+        <parameter name="cvalue" type="unknown" value="101011111111"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>
@@ -70,7 +70,7 @@
         <port name="jtag.bp.inst3_inst40_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|attackRounderLPM:inst39|lpm_constant:LPM_CONSTANT_component|lpm_constant_fj8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="1" mfg_id="110" node_id="3" sld_node_info="0x10186E01" version="2">
+    <node hpath="sound_manager:inst3|attackRounderLPM:inst39|lpm_constant:LPM_CONSTANT_component|lpm_constant_hj8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="1" mfg_id="110" node_id="3" sld_node_info="0x10186E01" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -81,7 +81,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="4"/>
-        <parameter name="cvalue" type="unknown" value="10101101"/>
+        <parameter name="cvalue" type="unknown" value="10101111"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>
@@ -129,7 +129,7 @@
         <port name="jtag.bp.inst3_inst39_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|decayFactorLPM:inst38|lpm_constant:LPM_CONSTANT_component|lpm_constant_5k8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="2" mfg_id="110" node_id="3" sld_node_info="0x10186E02" version="2">
+    <node hpath="sound_manager:inst3|decayFactorLPM:inst38|lpm_constant:LPM_CONSTANT_component|lpm_constant_6k8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="2" mfg_id="110" node_id="3" sld_node_info="0x10186E02" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -140,7 +140,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="4"/>
-        <parameter name="cvalue" type="unknown" value="010101010"/>
+        <parameter name="cvalue" type="unknown" value="110101010"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>
@@ -189,7 +189,7 @@
         <port name="jtag.bp.inst3_inst38_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|decayRounderLPM:inst43|lpm_constant:LPM_CONSTANT_component|lpm_constant_4g8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="3" mfg_id="110" node_id="3" sld_node_info="0x10186E03" version="2">
+    <node hpath="sound_manager:inst3|decayRounderLPM:inst43|lpm_constant:LPM_CONSTANT_component|lpm_constant_6g8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="3" mfg_id="110" node_id="3" sld_node_info="0x10186E03" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -200,7 +200,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="3"/>
-        <parameter name="cvalue" type="unknown" value="010111"/>
+        <parameter name="cvalue" type="unknown" value="110111"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>
@@ -246,7 +246,7 @@
         <port name="jtag.bp.inst3_inst43_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|releaseFactorLPM:inst42|lpm_constant:LPM_CONSTANT_component|lpm_constant_tk8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="4" mfg_id="110" node_id="3" sld_node_info="0x10186E04" version="2">
+    <node hpath="sound_manager:inst3|releaseFactorLPM:inst42|lpm_constant:LPM_CONSTANT_component|lpm_constant_uk8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="4" mfg_id="110" node_id="3" sld_node_info="0x10186E04" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -257,7 +257,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="4"/>
-        <parameter name="cvalue" type="unknown" value="111101111"/>
+        <parameter name="cvalue" type="unknown" value="111111111"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>
@@ -306,7 +306,7 @@
         <port name="jtag.bp.inst3_inst42_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|releaseRounderLPM:inst44|lpm_constant:LPM_CONSTANT_component|lpm_constant_gg8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="5" mfg_id="110" node_id="3" sld_node_info="0x10186E05" version="2">
+    <node hpath="sound_manager:inst3|releaseRounderLPM:inst44|lpm_constant:LPM_CONSTANT_component|lpm_constant_ig8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="5" mfg_id="110" node_id="3" sld_node_info="0x10186E05" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -317,7 +317,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="3"/>
-        <parameter name="cvalue" type="unknown" value="010101"/>
+        <parameter name="cvalue" type="unknown" value="010111"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>
@@ -363,7 +363,7 @@
         <port name="jtag.bp.inst3_inst44_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|sustainFactorLPM:inst41|lpm_constant:LPM_CONSTANT_component|lpm_constant_8i8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="6" mfg_id="110" node_id="3" sld_node_info="0x10186E06" version="2">
+    <node hpath="sound_manager:inst3|sustainFactorLPM:inst41|lpm_constant:LPM_CONSTANT_component|lpm_constant_3i8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="6" mfg_id="110" node_id="3" sld_node_info="0x10186E06" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -374,7 +374,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="4"/>
-        <parameter name="cvalue" type="unknown" value="001100000"/>
+        <parameter name="cvalue" type="unknown" value="100000000"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>

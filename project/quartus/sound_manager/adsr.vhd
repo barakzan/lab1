@@ -84,8 +84,12 @@ signal out_n : std_logic_vector(31 downto 0);
 							amplifier <= (others => '0');
 						end if;
 					when attack =>
-						if rounder <= (attackRounder / 2) then
-							rounder := rounder + attackRounder;
+						if rounder <= (attackFactor / 2) then
+							if rounder <= (attackFactor / 4) then
+								rounder := rounder + attackRounder;
+							else
+								rounder := rounder + (attackRounder / 2);
+							end if;
 						end if;
 						if en = '0' then
 							state <= decayReleased;
@@ -97,8 +101,12 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;
 					when decayPressed =>
-						if rounder <= (decayRounder / 4) then
-							rounder := rounder + decayRounder;
+						if rounder <= (decayFactor / 2) then
+							if rounder <= (decayFactor / 4) then
+								rounder := rounder + decayRounder;
+							else
+								rounder := rounder + (decayRounder / 2);
+							end if;
 						end if;
 						if en = '0' then
 							state <= sustainReleased;
@@ -110,8 +118,12 @@ signal out_n : std_logic_vector(31 downto 0);
 							rounder := 0;
 						end if;	
 					when decayReleased =>
-						if rounder <= (decayRounder / 4) then
-							rounder := rounder + decayRounder;
+						if rounder <= (decayFactor / 2) then
+							if rounder <= (decayFactor / 4) then
+								rounder := rounder + decayRounder;
+							else
+								rounder := rounder + (decayRounder / 2);
+							end if;
 						end if;
 						if en = '1' then
 							state <= attack;
@@ -148,8 +160,12 @@ signal out_n : std_logic_vector(31 downto 0);
 						end if;
 					when releasePressed =>
 						if rounder <= (releaseFactor / 2) then
-							rounder := rounder + releaseRounder;
-						end if;
+							if rounder <= (releaseFactor / 4) then
+								rounder := rounder + releaseRounder;
+							else
+								rounder := rounder + (releaseRounder / 2);
+							end if;
+						end if;	
 						if en = '0' then
 							state <= releaseReleased;
 							rounder := 0;
@@ -161,8 +177,12 @@ signal out_n : std_logic_vector(31 downto 0);
 						end if;
 					when releaseReleased =>
 						if rounder <= (releaseFactor / 2) then
-							rounder := rounder + releaseRounder;
-						end if;
+							if rounder <= (releaseFactor / 4) then
+								rounder := rounder + releaseRounder;
+							else
+								rounder := rounder + (releaseRounder / 2);
+							end if;
+						end if;	
 						if en = '1' then
 							state <= attack;
 							amplifier <= (others => '0');
