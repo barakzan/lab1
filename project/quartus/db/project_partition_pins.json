@@ -64,31 +64,87 @@
 					"strict" : false
 				},
 				{
-					"name" : "led[0]",
+					"name" : "hex_first[6]",
 					"strict" : false
 				},
 				{
-					"name" : "led[1]",
+					"name" : "hex_first[5]",
 					"strict" : false
 				},
 				{
-					"name" : "led[2]",
+					"name" : "hex_first[4]",
 					"strict" : false
 				},
 				{
-					"name" : "led[3]",
+					"name" : "hex_first[3]",
 					"strict" : false
 				},
 				{
-					"name" : "led[4]",
+					"name" : "hex_first[2]",
 					"strict" : false
 				},
 				{
-					"name" : "led[5]",
+					"name" : "hex_first[1]",
 					"strict" : false
 				},
 				{
-					"name" : "led[6]",
+					"name" : "hex_first[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_second[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_second[5]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_second[4]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_second[3]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_second[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_second[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_second[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_third[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_third[5]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_third[4]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_third[3]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_third[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_third[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hex_third[0]",
 					"strict" : false
 				},
 				{
@@ -129,6 +185,10 @@
 				},
 				{
 					"name" : "resetN",
+					"strict" : false
+				},
+				{
+					"name" : "sw0",
 					"strict" : false
 				},
 				{

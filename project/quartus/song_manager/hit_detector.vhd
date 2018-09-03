@@ -14,8 +14,8 @@ PORT
 		keyboard_notes			:  in  std_logic_vector(0 to 11);
 		song_notes				:  in  std_logic_vector(0 to 11);
 		out_enable				:	out std_logic;
-		duration					:  out std_logic_vector(9 downto 0);
-		hits						:  out std_logic_vector(9 downto 0)
+		duration					:  out std_logic_vector(11 downto 0);
+		hits						:  out std_logic_vector(11 downto 0)
 	);
 		
 END hit_detector;
@@ -25,8 +25,8 @@ begin
 
 	process(clk)
 		constant SILENCE : std_logic_vector(0 to 11) := "000000000000";
-		variable duration_counter : std_logic_vector(9 downto 0);
-		variable hits_counter : std_logic_vector(9 downto 0);
+		variable duration_counter : std_logic_vector(11 downto 0);
+		variable hits_counter : std_logic_vector(11 downto 0);
 		variable last_notes : std_logic_vector(0 to 11);
 	begin
 		if resetN = '0' then
@@ -51,7 +51,7 @@ begin
 					last_notes := song_notes;
 					hits_counter := (others => '0');
 					if song_notes /= SILENCE then
-						duration_counter := "0000000001";
+						duration_counter := "000000000001";
 					else
 						duration_counter := (others => '0');
 					end if;
