@@ -21,7 +21,8 @@ entity sound_manager_code is
 		   decayRounder		: IN INTEGER  RANGE 0 to 32				;
 		   releaseRounder		: IN INTEGER  RANGE 0 to 32				;			
 			sound					: out std_logic_vector(15 downto 0) 	;		
-			test_led 			: out std_logic
+			test_led 			: out std_logic								;
+			volume				: out std_logic_vector(2 downto 0) 		
 	    );
 end sound_manager_code ;
 
@@ -117,7 +118,8 @@ port(
   vol_up						: in std_logic;
   vol_down					: in std_logic;
   sound_in 					: in std_logic_vector(15 downto 0);
-  sound_out 				: out std_logic_vector(15 downto 0)
+  sound_out 				: out std_logic_vector(15 downto 0);
+  vol_out						: out std_logic_vector(2 downto 0)
 );
 end component;
 
@@ -309,7 +311,7 @@ end component;
 											  note14=>note14, note15=>note15, note16=>note16, note17=>note17, note18=>note18, note19=>note19, note20=>note20, 
 											  note21=>note21, note22=>note22, note23=>note23, addr=>all_notes );
 	
-	vol: vol_ctl port map (clk=>clk, resetN=>resetN,vol_up=>vol_up,vol_down=>vol_down,sound_in=>all_notes,sound_out=>sound);
+	vol: vol_ctl port map (clk=>clk, resetN=>resetN,vol_up=>vol_up,vol_down=>vol_down,sound_in=>all_notes,sound_out=>sound,vol_out=>volume);
 	
 	test_led <= enables(0) or enables(1) or enables(2) or enables(3) or enables(4) or enables(5) or enables(6) or 
 	            enables(7) or enables(8) or enables(9) or enables(10) or enables(11) or enables(12) or enables(13) or 

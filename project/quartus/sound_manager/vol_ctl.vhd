@@ -11,7 +11,8 @@ port(
   vol_up						: in std_logic;
   vol_down					: in std_logic;
   sound_in 					: in std_logic_vector(15 downto 0);
-  sound_out 				: out std_logic_vector(15 downto 0)
+  sound_out 				: out std_logic_vector(15 downto 0);
+  vol_out					: out std_logic_vector(2 downto 0)
 );
 end vol_ctl;
 
@@ -22,6 +23,7 @@ signal temp : std_logic_vector(18 downto 0);
 
  begin
 
+vol_out <= volume;
 temp <= sound_in * volume;
 sound_out <= temp(17 downto 2);
  
