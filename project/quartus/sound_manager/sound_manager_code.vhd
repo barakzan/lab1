@@ -10,6 +10,8 @@ entity sound_manager_code is
 	port(
 			clk 					: in std_logic									;
 			resetN 				: in std_logic									;
+			vol_up				: in std_logic									;
+			vol_down				: in std_logic									;			
 			keys 					: in std_logic_vector(0 to 23) 			;
 		   attackFactor      : IN INTEGER  RANGE 0 to 4095				;
 		   decayFactor 		: IN INTEGER  RANGE 0 to 511				;
@@ -103,14 +105,25 @@ component addr_note IS
 			note21				: 	in std_logic_vector(15 downto 0)			;
 			note22				: 	in std_logic_vector(15 downto 0)			;
 			note23				: 	in std_logic_vector(15 downto 0)			;
-			addr				: 	out std_logic_vector(15 downto 0)
+			addr					: 	out std_logic_vector(15 downto 0)
 		 );
 
 END component;
 
+component vol_ctl is
+port(
+  clk     					: in std_logic;
+  resetN 					: in std_logic;
+  vol_up						: in std_logic;
+  vol_down					: in std_logic;
+  sound_in 					: in std_logic_vector(15 downto 0);
+  sound_out 				: out std_logic_vector(15 downto 0)
+);
+end component;
 
-  signal enables 	: std_logic_vector(0 to 23)								;
-  signal ps 		: std_logic_vector(0 to 23)								;
+
+  signal enables 	: std_logic_vector(0 to 23)							;
+  signal ps 		: std_logic_vector(0 to 23)							;
   
   signal addr0 	: std_logic_vector(7 downto 0)						;
   signal addr1 	: std_logic_vector(7 downto 0)						;
@@ -186,6 +199,8 @@ END component;
   signal note21	: std_logic_vector(15 downto 0)						;
   signal note22	: std_logic_vector(15 downto 0)						;
   signal note23	: std_logic_vector(15 downto 0)						;
+  
+  signal all_notes : std_logic_vector(15 downto 0)						;
 
  begin
 
@@ -292,7 +307,9 @@ END component;
 	note_addr : addr_note port map (clk=>clk, enables=>enables, note0=>note0, note1=>note1, note2=>note2, note3=>note3, note4=>note4, note5=>note5, note6=>note6, 
 											  note7=>note7, note8=>note8, note9=>note9, note10=>note10, note11=>note11, note12=>note12, note13=>note13,  
 											  note14=>note14, note15=>note15, note16=>note16, note17=>note17, note18=>note18, note19=>note19, note20=>note20, 
-											  note21=>note21, note22=>note22, note23=>note23, addr=>sound );
+											  note21=>note21, note22=>note22, note23=>note23, addr=>all_notes );
+	
+	vol: vol_ctl port map (clk=>clk, resetN=>resetN,vol_up=>vol_up,vol_down=>vol_down,sound_in=>all_notes,sound_out=>sound);
 	
 	test_led <= enables(0) or enables(1) or enables(2) or enables(3) or enables(4) or enables(5) or enables(6) or 
 	            enables(7) or enables(8) or enables(9) or enables(10) or enables(11) or enables(12) or enables(13) or 
