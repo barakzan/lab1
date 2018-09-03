@@ -12,7 +12,7 @@ USE ieee.numeric_std.ALL;
 ENTITY addr_note IS
 PORT (
 			clk				: in std_logic;
-			enables			: 	in std_logic_vector(6 downto 0);
+			enables			: 	in std_logic_vector(23 downto 0);
 			note0				: 	in std_logic_vector(15 downto 0);
 			note1				: 	in std_logic_vector(15 downto 0);
 			note2				: 	in std_logic_vector(15 downto 0);
@@ -45,7 +45,7 @@ END addr_note;
 architecture addr_note_arch of addr_note is
 signal sum : std_logic_vector(15 downto 0);
 signal temp_sum : std_logic_vector(15 downto 0);
-signal numOfNotes : std_logic_vector(3 downto 0);
+signal numOfNotes : std_logic_vector(4 downto 0);
 begin
 
 	temp_sum <= std_logic_vector(  to_unsigned(to_integer(unsigned(sum)) / to_integer(unsigned(numOfNotes)),16));
@@ -55,19 +55,19 @@ begin
 	
 	--addr <= sum;
 	process (clk)	
-	variable cnt : std_logic_vector(3 downto 0);
+	variable cnt : std_logic_vector(4 downto 0);
 	begin
 		if (rising_edge(clk)) then
 		cnt := (others => '0');
-		ens : for i in 0 to 6 loop
+		ens : for i in 0 to 23 loop
 			if enables(i) = '1' then
 				cnt := cnt + 1;
 			end if;
 		end loop ens;
 		if cnt > 1 then
-			cnt := ("0" & cnt(3 downto 1)) + "0010";
+			cnt := ("0" & cnt(4 downto 1)) + "00010";
 		else
-			numOfNotes <= "0011";
+			numOfNotes <= "00011";
 		end if;
 		--sum <= std_logic_vector(  to_unsigned(to_integer(unsigned(note1 + note2 + note3 + note4 + note5 + note6 + note7)) / 4 ,16));
 		sum <= ("00"&note0(13 downto 0)) +("00"&note1(13 downto 0)) +("00"&note2(13 downto 0)) +("00"&note3(13 downto 0)) +
