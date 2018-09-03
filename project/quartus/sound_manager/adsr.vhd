@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use ieee.std_logic_unsigned.all ;
+use ieee.std_logic_signed.all ;
 
 
 entity adsr is
@@ -47,8 +47,8 @@ type States is (idle , --initial state
 
 signal state : States;
 signal slowClk : std_logic;
-signal amplifier : std_logic_vector(15 downto 0); -- normlized to 32000	
-signal out_n : std_logic_vector(31 downto 0);
+signal amplifier : std_logic_vector(16 downto 0); -- normlized to 32000	
+signal out_n : std_logic_vector(32 downto 0);
 
  begin
  
@@ -59,9 +59,8 @@ signal out_n : std_logic_vector(31 downto 0);
 		prescaler_1=>slowClk) ;
 
 	out_n <= in_note * amplifier;
-	out_note(13 downto 0)	<= out_n(31 downto 18);
-	out_note(15 downto 14)   <= "00";
-	--out_note <= in_note when en ='1' else (others => '0');
+	out_note(15 downto 0)	<= out_n(32 downto 17);
+
 	test_led <= '1' when amplifier > 950 else '0';
 		
 	PROCESS (slowClk, resetN)
