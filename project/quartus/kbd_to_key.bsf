@@ -68,7 +68,7 @@ agreement for further details.
 	)
 	(parameter
 		"num_of_keys"
-		"7"
+		"23"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

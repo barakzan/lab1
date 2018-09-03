@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE 5CSXFC6D6F31C6
 set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:37:37  AUGUST 23, 2018"
-set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.0 Standard Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -132,41 +132,6 @@ set_location_assignment PIN_AG26 -to VGA_R[6]
 set_location_assignment PIN_AJ26 -to VGA_R[7]
 set_location_assignment PIN_AJ22 -to VGA_SYNC_N
 set_location_assignment PIN_AK18 -to VGA_VS
-set_global_assignment -name BDF_FILE vga_test.bdf
-set_global_assignment -name BDF_FILE score_manager/score_manager.bdf
-set_global_assignment -name VHDL_FILE score_manager/score_counter.vhd
-set_global_assignment -name VHDL_FILE song_manager/songs_player.vhd
-set_global_assignment -name BDF_FILE song_manager/song_manager.bdf
-set_global_assignment -name VHDL_FILE song_manager/hit_detector.vhd
-set_global_assignment -name VHDL_FILE VGA_Controller.vhd
-set_global_assignment -name VHDL_FILE objects_mux.vhd
-set_global_assignment -name VHDL_FILE background_draw.vhd
-set_global_assignment -name QXP_FILE sound/audio_codec_controller.qxp
-set_global_assignment -name VHDL_FILE sound_manager/SinTable.vhd
-set_global_assignment -name VHDL_FILE sound_manager/prescaler.vhd
-set_global_assignment -name VHDL_FILE sound_manager/addr_counter.vhd
-set_global_assignment -name VHDL_FILE kbd_logic/kbd_to_key.VHD
-set_global_assignment -name VHDL_FILE hexss.vhd
-set_global_assignment -name BDF_FILE sound/experiment_sinus_generator.bdf
-set_global_assignment -name VHDL_FILE kbd/lpf.vhd
-set_global_assignment -name BDF_FILE kbd/KBDINTF.bdf
-set_global_assignment -name VHDL_FILE kbd/byterec.vhd
-set_global_assignment -name VHDL_FILE kbd/bitrec.vhd
-set_global_assignment -name BDF_FILE top.bdf
-set_global_assignment -name BDF_FILE kbd_logic/kbd_logic.bdf
-set_global_assignment -name BDF_FILE sound_manager/sound_manager.bdf
-set_global_assignment -name VHDL_FILE sound_manager/adsr.vhd
-set_global_assignment -name VHDL_FILE sound_manager/addr_note.vhd
-set_global_assignment -name QIP_FILE lpm_constants/attackFactorLPM.qip
-set_global_assignment -name QIP_FILE lpm_constants/decayFactorLPM.qip
-set_global_assignment -name QIP_FILE lpm_constants/sustainFactorLPM.qip
-set_global_assignment -name QIP_FILE lpm_constants/releaseFactorLPM.qip
-set_global_assignment -name QIP_FILE lpm_constants/attackRounderLPM.qip
-set_global_assignment -name QIP_FILE lpm_constants/decayRounderLPM.qip
-set_global_assignment -name QIP_FILE lpm_constants/releaseRounderLPM.qip
-set_global_assignment -name VHDL_FILE key_draw.vhd
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
-set_global_assignment -name VHDL_FILE sound_manager/sound_manager_code.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -341,4 +306,89 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[10]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to dout_sound[11]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to enable
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to new_note
+set_global_assignment -name VHDL_FILE note_logic/note_draw_manager.vhd
+set_global_assignment -name VHDL_FILE note_logic/note_draw.vhd
+set_global_assignment -name BDF_FILE vga_test.bdf
+set_global_assignment -name BDF_FILE score_manager/score_manager.bdf
+set_global_assignment -name VHDL_FILE score_manager/score_counter.vhd
+set_global_assignment -name VHDL_FILE song_manager/songs_player.vhd
+set_global_assignment -name BDF_FILE song_manager/song_manager.bdf
+set_global_assignment -name VHDL_FILE song_manager/hit_detector.vhd
+set_global_assignment -name VHDL_FILE VGA_Controller.vhd
+set_global_assignment -name VHDL_FILE objects_mux.vhd
+set_global_assignment -name VHDL_FILE background_draw.vhd
+set_global_assignment -name QXP_FILE sound/audio_codec_controller.qxp
+set_global_assignment -name VHDL_FILE sound_manager/SinTable.vhd
+set_global_assignment -name VHDL_FILE sound_manager/prescaler.vhd
+set_global_assignment -name VHDL_FILE sound_manager/addr_counter.vhd
+set_global_assignment -name VHDL_FILE kbd_logic/kbd_to_key.VHD
+set_global_assignment -name VHDL_FILE hexss.vhd
+set_global_assignment -name BDF_FILE sound/experiment_sinus_generator.bdf
+set_global_assignment -name VHDL_FILE kbd/lpf.vhd
+set_global_assignment -name BDF_FILE kbd/KBDINTF.bdf
+set_global_assignment -name VHDL_FILE kbd/byterec.vhd
+set_global_assignment -name VHDL_FILE kbd/bitrec.vhd
+set_global_assignment -name BDF_FILE top.bdf
+set_global_assignment -name BDF_FILE kbd_logic/kbd_logic.bdf
+set_global_assignment -name BDF_FILE sound_manager/sound_manager.bdf
+set_global_assignment -name VHDL_FILE sound_manager/adsr.vhd
+set_global_assignment -name VHDL_FILE sound_manager/addr_note.vhd
+set_global_assignment -name QIP_FILE lpm_constants/attackFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/decayFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/sustainFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/releaseFactorLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/attackRounderLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/decayRounderLPM.qip
+set_global_assignment -name QIP_FILE lpm_constants/releaseRounderLPM.qip
+set_global_assignment -name VHDL_FILE key_draw.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
+set_global_assignment -name VHDL_FILE sound_manager/sound_manager_code.vhd
+set_location_assignment PIN_AB30 -to sw0
+set_location_assignment PIN_W17 -to hex_first[0]
+set_location_assignment PIN_V18 -to hex_first[1]
+set_location_assignment PIN_AG17 -to hex_first[2]
+set_location_assignment PIN_AG16 -to hex_first[3]
+set_location_assignment PIN_AH17 -to hex_first[4]
+set_location_assignment PIN_AG18 -to hex_first[5]
+set_location_assignment PIN_AH18 -to hex_first[6]
+set_location_assignment PIN_AF16 -to hex_second[0]
+set_location_assignment PIN_V16 -to hex_second[1]
+set_location_assignment PIN_AE16 -to hex_second[2]
+set_location_assignment PIN_AD17 -to hex_second[3]
+set_location_assignment PIN_AE18 -to hex_second[4]
+set_location_assignment PIN_AE17 -to hex_second[5]
+set_location_assignment PIN_V17 -to hex_second[6]
+set_location_assignment PIN_AA21 -to hex_third[0]
+set_location_assignment PIN_AB17 -to hex_third[1]
+set_location_assignment PIN_AA18 -to hex_third[2]
+set_location_assignment PIN_Y17 -to hex_third[3]
+set_location_assignment PIN_Y18 -to hex_third[4]
+set_location_assignment PIN_AF18 -to hex_third[5]
+set_location_assignment PIN_W16 -to hex_third[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tck
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tdi
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tdo
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to altera_reserved_tms
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_first[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_first[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_first[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_first[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_first[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_first[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_first[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_second[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_second[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_second[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_second[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_second[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_second[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_second[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_third[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_third[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_third[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_third[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_third[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_third[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hex_third[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sw0
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

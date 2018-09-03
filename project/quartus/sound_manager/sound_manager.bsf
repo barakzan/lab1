@@ -21,7 +21,7 @@ agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 200 112)
+	(rect 16 16 208 112)
 	(text "sound_manager" (rect 5 0 99 19)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 75 24 92)(font "Intel Clear" ))
 	(port
@@ -41,25 +41,25 @@ agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "keys[0..6]" (rect 0 0 57 19)(font "Intel Clear" (font_size 8)))
-		(text "keys[0..6]" (rect 21 59 78 78)(font "Intel Clear" (font_size 8)))
+		(text "keys[0..23]" (rect 0 0 66 19)(font "Intel Clear" (font_size 8)))
+		(text "keys[0..23]" (rect 21 59 87 78)(font "Intel Clear" (font_size 8)))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
-		(pt 184 32)
+		(pt 192 32)
 		(output)
 		(text "sound[15..0]" (rect 0 0 74 19)(font "Intel Clear" (font_size 8)))
-		(text "sound[15..0]" (rect 89 27 163 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 184 32)(pt 168 32)(line_width 3))
+		(text "sound[15..0]" (rect 97 27 171 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 192 32)(pt 176 32)(line_width 3))
 	)
 	(port
-		(pt 184 48)
+		(pt 192 48)
 		(output)
 		(text "test_led" (rect 0 0 48 19)(font "Intel Clear" (font_size 8)))
-		(text "test_led" (rect 115 43 163 62)(font "Intel Clear" (font_size 8)))
-		(line (pt 184 48)(pt 168 48))
+		(text "test_led" (rect 123 43 171 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 192 48)(pt 176 48))
 	)
 	(drawing
-		(rectangle (rect 16 16 168 80))
+		(rectangle (rect 16 16 176 80))
 	)
 )

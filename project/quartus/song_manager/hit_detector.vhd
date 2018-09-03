@@ -11,8 +11,8 @@ PORT
 		resetN					:	IN  STD_LOGIC;	
 		clk 						:  IN	 STD_LOGIC;
 		enable					:  IN  STD_LOGIC;
-		keyboard_notes			:  in  std_logic_vector(0 to 11);
-		song_notes				:  in  std_logic_vector(0 to 11);
+		keyboard_notes			:  in  std_logic_vector(0 to 23);
+		song_notes				:  in  std_logic_vector(0 to 23);
 		out_enable				:	out std_logic;
 		duration					:  out std_logic_vector(11 downto 0);
 		hits						:  out std_logic_vector(11 downto 0)
@@ -24,7 +24,7 @@ ARCHITECTURE hit_detector_arch OF hit_detector IS
 begin
 
 	process(clk)
-		constant SILENCE : std_logic_vector(0 to 11) := "000000000000";
+		constant SILENCE : std_logic_vector(0 to 23) := (others => '0');
 		variable duration_counter : std_logic_vector(11 downto 0);
 		variable hits_counter : std_logic_vector(11 downto 0);
 		variable last_notes : std_logic_vector(0 to 11);
