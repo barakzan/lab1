@@ -11,8 +11,8 @@ port 	(
 		
 	   CLK      			: in std_logic;
 		RESETn				: in std_logic;
-		start_X				: in std_logic_vector(8 downto 0);
-		end_X					: in std_logic_vector(8 downto 0);
+		start_X				: in std_logic_vector(9 downto 0);
+		end_X					: in std_logic_vector(9 downto 0);
 		oCoord_X 			: in integer;
 		oCoord_Y 			: in integer;
 		timer_done			: in std_logic;
@@ -42,6 +42,7 @@ begin
 		if RESETn = '0' then
 			drawing_request <= '0';
 			render_counter := 0;
+			note_pos := (others => '0');
 		elsif rising_edge(clk) then
 			drawing_request <= '0';
 			

@@ -209,103 +209,103 @@ begin
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_note8 AND oCoord_X <= start_black6)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note8 AND oCoord_X <= end_note8)) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(13) = '1' then -- black
 				if (oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_black6 AND oCoord_X <= end_black6) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(14) = '1' then -- white
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black6 AND oCoord_X <= start_black7)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note9 AND oCoord_X <= end_note9)) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(15) = '1' then -- black
 				if (oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_black7 AND oCoord_X <= end_black7) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(16) = '1' then -- white
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black7 AND oCoord_X <= end_note10)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note10 AND oCoord_X <= end_note10)) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(17) = '1' then -- white
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_note11 AND oCoord_X <= start_black8)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note11 AND oCoord_X <= end_note11)) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(18) = '1' then -- black
 				if (oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_black8 AND oCoord_X <= end_black8) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(19) = '1' then -- white
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black8 AND oCoord_X <= start_black9)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note12 AND oCoord_X <= end_note12)) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(20) = '1' then -- black
 				if (oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_black9 AND oCoord_X <= end_black9) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(21) = '1' then -- white
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black9 AND oCoord_X <= start_black10)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note13 AND oCoord_X <= end_note13)) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(22) = '1' then -- black
 				if (oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= start_black10 AND oCoord_X <= end_black10) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 			if keys(23) = '1' then -- white
 				if ((oCoord_y >= top_y AND oCoord_y < bot_y) AND (oCoord_X >= end_black10 AND oCoord_X <= end_note14)) OR
 					((oCoord_y >= bot_y AND oCoord_y < y_frame) AND (oCoord_X >= start_note14 AND oCoord_X <= end_note14)) then
 					drawing_request <= '1';
-					mVGA_R <= "000";	
-					mVGA_G <= "111";	
-					mVGA_B <= "00" ;
+					mVGA_R <= "001";	
+					mVGA_G <= "011";	
+					mVGA_B <= "11" ;
 				end if;
 			end if;
 		end if;

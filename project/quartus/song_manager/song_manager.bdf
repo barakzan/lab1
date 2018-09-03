@@ -70,7 +70,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 920 304 1096 320)
+	(rect 1192 304 1368 320)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "song_scale_clk" (rect 90 0 165 12)(font "Arial" ))
 	(pt 0 8)
@@ -86,7 +86,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 960 160 1136 176)
+	(rect 1232 160 1408 176)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "new_note" (rect 90 0 136 12)(font "Arial" ))
 	(pt 0 8)
@@ -102,7 +102,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 960 176 1137 192)
+	(rect 1232 176 1409 192)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "dout_draw[0..23]" (rect 90 0 171 12)(font "Arial" ))
 	(pt 0 8)
@@ -118,7 +118,7 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 960 192 1136 208)
+	(rect 1232 192 1408 208)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "notes[0..23]" (rect 90 0 149 12)(font "Arial" ))
 	(pt 0 8)
@@ -164,7 +164,7 @@ agreement for further details.
 	(annotation_block (parameter)(rect 48 104 205 161))
 )
 (symbol
-	(rect 280 136 496 248)
+	(rect 552 136 768 248)
 	(text "prescaler" (rect 5 0 49 12)(font "Arial" ))
 	(text "inst" (rect 8 96 25 108)(font "Arial" ))
 	(port
@@ -207,7 +207,7 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 624 136 840 248)
+	(rect 896 136 1112 248)
 	(text "songs_player" (rect 5 0 71 12)(font "Arial" ))
 	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
 	(port
@@ -242,21 +242,21 @@ agreement for further details.
 		(pt 216 32)
 		(output)
 		(text "new_note" (rect 0 0 46 12)(font "Arial" ))
-		(text "new_note" (rect 157 27 195 39)(font "Arial" ))
+		(text "new_note" (rect 157 27 203 39)(font "Arial" ))
 		(line (pt 216 32)(pt 200 32))
 	)
 	(port
 		(pt 216 48)
 		(output)
 		(text "dout_draw[0..23]" (rect 0 0 81 12)(font "Arial" ))
-		(text "dout_draw[0..23]" (rect 127 43 195 55)(font "Arial" ))
+		(text "dout_draw[0..23]" (rect 127 43 208 55)(font "Arial" ))
 		(line (pt 216 48)(pt 200 48)(line_width 3))
 	)
 	(port
 		(pt 216 64)
 		(output)
 		(text "dout_sound[0..23]" (rect 0 0 88 12)(font "Arial" ))
-		(text "dout_sound[0..23]" (rect 121 59 195 71)(font "Arial" ))
+		(text "dout_sound[0..23]" (rect 121 59 209 71)(font "Arial" ))
 		(line (pt 216 64)(pt 200 64)(line_width 3))
 	)
 	(drawing
@@ -264,103 +264,103 @@ agreement for further details.
 	)
 )
 (connector
-	(pt 256 184)
-	(pt 280 184)
+	(pt 552 8)
+	(pt 552 168)
 )
 (connector
-	(pt 280 8)
-	(pt 280 168)
+	(pt 528 32)
+	(pt 528 184)
 )
 (connector
-	(pt 232 32)
-	(pt 256 32)
+	(pt 880 8)
+	(pt 880 184)
 )
 (connector
-	(pt 256 32)
-	(pt 592 32)
+	(pt 864 32)
+	(pt 864 168)
+)
+(connector
+	(pt 872 216)
+	(pt 872 280)
+	(bus)
+)
+(connector
+	(pt 232 280)
+	(pt 872 280)
+	(bus)
+)
+(connector
+	(pt 768 168)
+	(pt 800 168)
 )
 (connector
 	(pt 232 8)
-	(pt 280 8)
+	(pt 552 8)
 )
 (connector
-	(pt 280 8)
-	(pt 608 8)
+	(pt 552 8)
+	(pt 880 8)
 )
 (connector
-	(pt 496 168)
-	(pt 528 168)
+	(pt 232 32)
+	(pt 528 32)
 )
 (connector
-	(pt 256 32)
-	(pt 256 184)
+	(pt 528 32)
+	(pt 864 32)
+)
+(connector
+	(pt 800 168)
+	(pt 800 200)
+)
+(connector
+	(pt 800 200)
+	(pt 800 312)
+)
+(connector
+	(pt 528 184)
+	(pt 552 184)
 )
 (connector
 	(pt 184 200)
-	(pt 280 200)
+	(pt 552 200)
 	(bus)
 )
 (connector
-	(pt 528 312)
-	(pt 920 312)
+	(pt 864 168)
+	(pt 896 168)
 )
 (connector
-	(pt 608 8)
-	(pt 608 184)
+	(pt 880 184)
+	(pt 896 184)
 )
 (connector
-	(pt 608 184)
-	(pt 624 184)
+	(pt 800 200)
+	(pt 896 200)
 )
 (connector
-	(pt 592 32)
-	(pt 592 168)
-)
-(connector
-	(pt 592 168)
-	(pt 624 168)
-)
-(connector
-	(pt 528 200)
-	(pt 624 200)
-)
-(connector
-	(pt 528 168)
-	(pt 528 200)
-)
-(connector
-	(pt 528 200)
-	(pt 528 312)
-)
-(connector
-	(pt 624 216)
-	(pt 600 216)
+	(pt 872 216)
+	(pt 896 216)
 	(bus)
 )
 (connector
-	(pt 600 216)
-	(pt 600 280)
+	(pt 800 312)
+	(pt 1192 312)
+)
+(connector
+	(pt 1112 168)
+	(pt 1232 168)
+)
+(connector
+	(pt 1112 184)
+	(pt 1232 184)
 	(bus)
 )
 (connector
-	(pt 600 280)
-	(pt 232 280)
+	(pt 1112 200)
+	(pt 1232 200)
 	(bus)
 )
-(connector
-	(pt 960 168)
-	(pt 840 168)
-)
-(connector
-	(pt 840 184)
-	(pt 960 184)
-	(bus)
-)
-(connector
-	(pt 840 200)
-	(pt 960 200)
-	(bus)
-)
-(junction (pt 280 8))
-(junction (pt 256 32))
-(junction (pt 528 200))
+(junction (pt 552 8))
+(junction (pt 528 32))
+(junction (pt 800 200))

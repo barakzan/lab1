@@ -18,7 +18,7 @@ end songs_player;
 
 architecture songs_player_arch of songs_player is
 
-constant array_size 			: integer := 82;
+constant array_size 			: integer := 81;
 
 type table_type is array(0 to array_size - 1) of std_logic_vector(0 to 23);
 signal notes_table				: table_type;
@@ -27,7 +27,6 @@ begin
 
 	process(clk)
 	constant notes_table : table_type := (
-"000000000000000000000000",
 "000000000000000000000000",
 "000000000000000000000000",
 "000000000000000000000000",
@@ -109,6 +108,7 @@ begin
 "000000000000000000000000",
 "000000000000000000000000",
 "000000000000000000000000"
+
 );
 
 variable addr : integer;

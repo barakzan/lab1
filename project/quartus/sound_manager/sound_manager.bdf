@@ -22,7 +22,7 @@ agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect -376 72 -200 88)
+	(rect -376 32 -200 48)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "clk" (rect 9 0 23 12)(font "Arial" ))
 	(pt 176 8)
@@ -38,7 +38,7 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect -376 96 -200 112)
+	(rect -376 56 -200 72)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "resetN" (rect 9 0 42 12)(font "Arial" ))
 	(pt 176 8)
@@ -56,7 +56,39 @@ agreement for further details.
 	(input)
 	(rect -368 128 -200 144)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "keys[0..23]" (rect 5 0 62 12)(font "Arial" ))
+	(text "keys[0..23]" (rect 5 0 61 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect -368 104 -200 120)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "plus_key" (rect 5 0 50 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect -368 80 -200 96)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "minus_key" (rect 5 0 57 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -374,14 +406,14 @@ agreement for further details.
 		(pt 232 32)
 		(output)
 		(text "sound[15..0]" (rect 0 0 61 12)(font "Arial" ))
-		(text "sound[15..0]" (rect 160 27 211 39)(font "Arial" ))
+		(text "sound[15..0]" (rect 160 27 221 39)(font "Arial" ))
 		(line (pt 232 32)(pt 216 32)(line_width 3))
 	)
 	(port
 		(pt 232 48)
 		(output)
 		(text "test_led" (rect 0 0 38 12)(font "Arial" ))
-		(text "test_led" (rect 179 43 211 55)(font "Arial" ))
+		(text "test_led" (rect 179 43 217 55)(font "Arial" ))
 		(line (pt 232 48)(pt 216 48))
 	)
 	(drawing
@@ -459,25 +491,9 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt -8 80)
-	(pt -200 80)
-)
-(connector
-	(pt -32 104)
-	(pt -200 104)
-)
-(connector
 	(pt -56 136)
 	(pt -200 136)
 	(bus)
-)
-(connector
-	(pt -8 136)
-	(pt -8 80)
-)
-(connector
-	(pt -32 152)
-	(pt -32 104)
 )
 (connector
 	(pt -56 168)
@@ -555,4 +571,20 @@ agreement for further details.
 	(pt -56 248)
 	(pt -56 440)
 	(bus)
+)
+(connector
+	(pt -8 40)
+	(pt -200 40)
+)
+(connector
+	(pt -32 64)
+	(pt -200 64)
+)
+(connector
+	(pt -8 136)
+	(pt -8 40)
+)
+(connector
+	(pt -32 152)
+	(pt -32 64)
 )
