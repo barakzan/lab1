@@ -104,7 +104,7 @@ agreement for further details.
 	(output)
 	(rect 960 176 1137 192)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "dout_draw[23..0]" (rect 90 0 171 12)(font "Arial" ))
+	(text "dout_draw[0..23]" (rect 90 0 171 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -120,7 +120,7 @@ agreement for further details.
 	(output)
 	(rect 960 192 1136 208)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "notes[23..0]" (rect 90 0 149 12)(font "Arial" ))
+	(text "notes[0..23]" (rect 90 0 149 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -248,15 +248,15 @@ agreement for further details.
 	(port
 		(pt 216 48)
 		(output)
-		(text "dout_draw[23..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "dout_draw[23..0]" (rect 127 43 195 55)(font "Arial" ))
+		(text "dout_draw[0..23]" (rect 0 0 81 12)(font "Arial" ))
+		(text "dout_draw[0..23]" (rect 127 43 195 55)(font "Arial" ))
 		(line (pt 216 48)(pt 200 48)(line_width 3))
 	)
 	(port
 		(pt 216 64)
 		(output)
-		(text "dout_sound[23..0]" (rect 0 0 88 12)(font "Arial" ))
-		(text "dout_sound[23..0]" (rect 121 59 195 71)(font "Arial" ))
+		(text "dout_sound[0..23]" (rect 0 0 88 12)(font "Arial" ))
+		(text "dout_sound[0..23]" (rect 121 59 195 71)(font "Arial" ))
 		(line (pt 216 64)(pt 200 64)(line_width 3))
 	)
 	(drawing

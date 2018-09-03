@@ -27,7 +27,7 @@ begin
 		constant SILENCE : std_logic_vector(0 to 23) := (others => '0');
 		variable duration_counter : std_logic_vector(11 downto 0);
 		variable hits_counter : std_logic_vector(11 downto 0);
-		variable last_notes : std_logic_vector(0 to 11);
+		variable last_notes : std_logic_vector(0 to 23);
 	begin
 		if resetN = '0' then
 			duration_counter := (others => '0');

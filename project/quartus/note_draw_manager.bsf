@@ -62,8 +62,8 @@ agreement for further details.
 	(port
 		(pt 0 112)
 		(input)
-		(text "notes[0..6]" (rect 0 0 41 12)(font "Arial" ))
-		(text "notes[0..6]" (rect 21 107 62 119)(font "Arial" ))
+		(text "notes[0..23]" (rect 0 0 46 12)(font "Arial" ))
+		(text "notes[0..23]" (rect 21 107 67 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port

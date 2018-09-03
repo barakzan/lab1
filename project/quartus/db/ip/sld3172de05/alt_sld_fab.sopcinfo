@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="alt_sld_fab" kind="alt_sld_fab" version="1.0" fabric="QSYS">
  <!-- Format version 17.0 595 (Future versions may contain additional information.) -->
- <!-- 2018.09.03.13:21:23 -->
+ <!-- 2018.09.03.16:24:41 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_DEVICE_FAMILY">
   <type>java.lang.String</type>
@@ -56,7 +56,7 @@
 the requested settings for a module instance. -->
   <parameter name="DESIGN_HASH">
    <type>java.lang.String</type>
-   <value>bff7c8cebf09ffe2d5df</value>
+   <value>31bb9538e17e5f1ee963</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -104,7 +104,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="EP_INFOS">
    <type>java.lang.String</type>
-   <value>{hpath {sound_manager:inst3|attackFactorLPM:inst40|lpm_constant:LPM_CONSTANT_component|lpm_constant_3m8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|attackRounderLPM:inst39|lpm_constant:LPM_CONSTANT_component|lpm_constant_fj8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|decayFactorLPM:inst38|lpm_constant:LPM_CONSTANT_component|lpm_constant_5k8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|decayRounderLPM:inst43|lpm_constant:LPM_CONSTANT_component|lpm_constant_4g8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|releaseFactorLPM:inst42|lpm_constant:LPM_CONSTANT_component|lpm_constant_tk8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|releaseRounderLPM:inst44|lpm_constant:LPM_CONSTANT_component|lpm_constant_gg8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|sustainFactorLPM:inst41|lpm_constant:LPM_CONSTANT_component|lpm_constant_8i8:ag|sld_mod_ram_rom:mgl_prim1} } </value>
+   <value>{hpath {sound_manager:inst3|attackFactorLPM:inst40|lpm_constant:LPM_CONSTANT_component|lpm_constant_mn8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|attackRounderLPM:inst39|lpm_constant:LPM_CONSTANT_component|lpm_constant_hj8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|decayFactorLPM:inst38|lpm_constant:LPM_CONSTANT_component|lpm_constant_6k8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|decayRounderLPM:inst43|lpm_constant:LPM_CONSTANT_component|lpm_constant_6g8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|releaseFactorLPM:inst42|lpm_constant:LPM_CONSTANT_component|lpm_constant_uk8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|releaseRounderLPM:inst44|lpm_constant:LPM_CONSTANT_component|lpm_constant_ig8:ag|sld_mod_ram_rom:mgl_prim1} } {hpath {sound_manager:inst3|sustainFactorLPM:inst41|lpm_constant:LPM_CONSTANT_component|lpm_constant_3i8:ag|sld_mod_ram_rom:mgl_prim1} } </value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -4951,7 +4951,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <parameter name="DESIGN_HASH">
    <type>java.lang.String</type>
-   <value>bff7c8cebf09ffe2d5df</value>
+   <value>31bb9538e17e5f1ee963</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

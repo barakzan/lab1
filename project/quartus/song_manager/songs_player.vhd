@@ -10,8 +10,8 @@ entity songs_player is
           enable	   : in  std_logic                       ;
 			 delay	   : in  std_logic_vector(6 downto 0)   ;
 			 new_note   : out std_logic							  ;
-          dout_draw  : out std_logic_vector(23 downto 0)   ;
-			 dout_sound : out std_logic_vector(23 downto 0)
+          dout_draw  : out std_logic_vector(0 to 23)   ;
+			 dout_sound : out std_logic_vector(0 to 23)
 		   )  ;
 
 end songs_player;
@@ -20,7 +20,7 @@ architecture songs_player_arch of songs_player is
 
 constant array_size 			: integer := 82;
 
-type table_type is array(0 to array_size - 1) of std_logic_vector(11 downto 0);
+type table_type is array(0 to array_size - 1) of std_logic_vector(0 to 23);
 signal notes_table				: table_type;
 
 begin

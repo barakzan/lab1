@@ -308,7 +308,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to enable
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to new_note
 set_global_assignment -name VHDL_FILE note_logic/note_draw_manager.vhd
 set_global_assignment -name VHDL_FILE note_logic/note_draw.vhd
-set_global_assignment -name BDF_FILE vga_test.bdf
 set_global_assignment -name BDF_FILE score_manager/score_manager.bdf
 set_global_assignment -name VHDL_FILE score_manager/score_counter.vhd
 set_global_assignment -name VHDL_FILE song_manager/songs_player.vhd

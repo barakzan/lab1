@@ -78,7 +78,7 @@ end component;
 component addr_note IS
 	PORT (
 			clk				:  in std_logic										;
-			enables			: 	in std_logic_vector(6 downto 0)				;
+			enables			: 	in std_logic_vector(23 downto 0)				;
 			note0				: 	in std_logic_vector(15 downto 0)				;
 			note1				: 	in std_logic_vector(15 downto 0)				;
 			note2				: 	in std_logic_vector(15 downto 0)				;
@@ -109,8 +109,8 @@ component addr_note IS
 END component;
 
 
-  signal enables 	: std_logic_vector(0 to 6)								;
-  signal ps 		: std_logic_vector(0 to 6)								;
+  signal enables 	: std_logic_vector(0 to 23)								;
+  signal ps 		: std_logic_vector(0 to 23)								;
   
   signal addr0 	: std_logic_vector(7 downto 0)						;
   signal addr1 	: std_logic_vector(7 downto 0)						;
@@ -294,7 +294,10 @@ END component;
 											  note14=>note14, note15=>note15, note16=>note16, note17=>note17, note18=>note18, note19=>note19, note20=>note20, 
 											  note21=>note21, note22=>note22, note23=>note23, addr=>sound );
 	
-	test_led <= enables(0) or enables(1) or enables(2) or enables(3) or enables(4) or enables(5) or enables(6);
+	test_led <= enables(0) or enables(1) or enables(2) or enables(3) or enables(4) or enables(5) or enables(6) or 
+	            enables(7) or enables(8) or enables(9) or enables(10) or enables(11) or enables(12) or enables(13) or 
+					enables(14) or enables(15) or enables(16) or enables(17) or enables(18) or enables(19) or enables(20) or 
+					enables(21) or enables(22) or enables(23);
  
  
 end arc_sound_manager_code ;
