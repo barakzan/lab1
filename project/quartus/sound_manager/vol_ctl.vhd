@@ -30,7 +30,7 @@ sound_out <= temp(19 downto 4);
 process(clk, resetN)
  begin
 		if resetN = '0' then
-			volume <= "1011";
+			volume <= "0111";
 		elsif rising_edge (clk) then
 			if vol_up = '1' then
 				if volume /= "1100" then
