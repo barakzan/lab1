@@ -437,6 +437,22 @@ agreement for further details.
 	)
 )
 (pin
+	(output)
+	(rect 2440 416 2616 432)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "volume[6..0]" (rect 90 0 150 17)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
 	(bidir)
 	(rect 2576 1040 2752 1056)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
@@ -1369,9 +1385,31 @@ agreement for further details.
 	)
 )
 (symbol
+	(rect 2208 392 2368 472)
+	(text "hexss" (rect 5 0 34 12)(font "Arial" ))
+	(text "inst14" (rect 8 64 36 81)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "din[3..0]" (rect 0 0 40 12)(font "Arial" ))
+		(text "din[3..0]" (rect 21 27 61 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "ss[6..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "ss[6..0]" (rect 108 27 145 39)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 64))
+	)
+)
+(symbol
 	(rect 1640 976 1832 1104)
 	(text "sound_manager" (rect 5 0 99 19)(font "Intel Clear" (font_size 8)))
-	(text "inst3" (rect 8 107 30 124)(font "Intel Clear" ))
+	(text "inst16" (rect 8 107 36 124)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -1389,15 +1427,15 @@ agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "minus_key" (rect 0 0 63 19)(font "Intel Clear" (font_size 8)))
-		(text "minus_key" (rect 21 59 84 78)(font "Intel Clear" (font_size 8)))
+		(text "plus_key" (rect 0 0 53 19)(font "Intel Clear" (font_size 8)))
+		(text "plus_key" (rect 21 59 74 78)(font "Intel Clear" (font_size 8)))
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "plus_key" (rect 0 0 53 19)(font "Intel Clear" (font_size 8)))
-		(text "plus_key" (rect 21 75 74 94)(font "Intel Clear" (font_size 8)))
+		(text "minus_key" (rect 0 0 63 19)(font "Intel Clear" (font_size 8)))
+		(text "minus_key" (rect 21 75 84 94)(font "Intel Clear" (font_size 8)))
 		(line (pt 0 80)(pt 16 80))
 	)
 	(port
@@ -1420,6 +1458,13 @@ agreement for further details.
 		(text "test_led" (rect 0 0 48 19)(font "Intel Clear" (font_size 8)))
 		(text "test_led" (rect 123 43 171 62)(font "Intel Clear" (font_size 8)))
 		(line (pt 192 48)(pt 176 48))
+	)
+	(port
+		(pt 192 64)
+		(output)
+		(text "volume[3..0]" (rect 0 0 74 19)(font "Intel Clear" (font_size 8)))
+		(text "volume[3..0]" (rect 97 59 171 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 192 64)(pt 176 64)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 176 112))
@@ -1906,10 +1951,6 @@ agreement for further details.
 	(pt 1072 728)
 )
 (connector
-	(pt 1936 864)
-	(pt 2096 864)
-)
-(connector
 	(pt 2368 520)
 	(pt 2440 520)
 	(bus)
@@ -2052,29 +2093,6 @@ agreement for further details.
 	(pt 1992 896)
 )
 (connector
-	(pt 1832 1008)
-	(pt 2168 1008)
-	(bus)
-)
-(connector
-	(pt 2168 1000)
-	(pt 2168 1008)
-	(bus)
-)
-(connector
-	(pt 2168 1008)
-	(pt 2168 1016)
-	(bus)
-)
-(connector
-	(pt 1936 1024)
-	(pt 1832 1024)
-)
-(connector
-	(pt 1936 864)
-	(pt 1936 1024)
-)
-(connector
 	(text "note_draw[0..23]" (rect 1192 472 1272 489)(font "Intel Clear" ))
 	(pt 1272 488)
 	(pt 1304 488)
@@ -2143,24 +2161,68 @@ agreement for further details.
 	(pt 1024 168)
 )
 (connector
-	(pt 1024 168)
-	(pt 1024 1040)
+	(pt 1016 184)
+	(pt 1000 184)
 )
 (connector
-	(pt 1024 1040)
+	(pt 2096 864)
+	(pt 1872 864)
+)
+(connector
+	(pt 1832 1024)
+	(pt 1872 1024)
+)
+(connector
+	(pt 1872 864)
+	(pt 1872 1024)
+)
+(connector
+	(pt 2168 1000)
+	(pt 2168 1008)
+	(bus)
+)
+(connector
+	(pt 2168 1008)
+	(pt 2168 1016)
+	(bus)
+)
+(connector
+	(pt 1832 1008)
+	(pt 2168 1008)
+	(bus)
+)
+(connector
+	(pt 2440 424)
+	(pt 2368 424)
+	(bus)
+)
+(connector
+	(text "vol[3..0]" (rect 1824 1024 1862 1041)(font "Intel Clear" ))
+	(pt 1832 1040)
+	(pt 1872 1040)
+	(bus)
+)
+(connector
+	(text "vol[3..0]" (rect 2122 400 2160 417)(font "Intel Clear" ))
+	(pt 2112 424)
+	(pt 2208 424)
+	(bus)
+)
+(connector
+	(pt 1016 184)
+	(pt 1016 1040)
+)
+(connector
+	(pt 1016 1040)
 	(pt 1640 1040)
 )
 (connector
+	(pt 1024 1056)
+	(pt 1024 168)
+)
+(connector
+	(pt 1024 1056)
 	(pt 1640 1056)
-	(pt 1016 1056)
-)
-(connector
-	(pt 1016 1056)
-	(pt 1016 184)
-)
-(connector
-	(pt 1016 184)
-	(pt 1000 184)
 )
 (junction (pt 1592 912))
 (junction (pt 1600 896))

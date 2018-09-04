@@ -118,9 +118,25 @@ agreement for further details.
 )
 (pin
 	(output)
-	(rect 288 136 464 152)
+	(rect 304 112 480 128)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "test_led" (rect 90 0 128 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 304 128 480 144)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "volume[3..0]" (rect 90 0 152 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -430,13 +446,16 @@ agreement for further details.
 		(text "test_led" (rect 179 43 211 55)(font "Arial" ))
 		(line (pt 232 48)(pt 216 48))
 	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "volume[3..0]" (rect 0 0 62 12)(font "Arial" ))
+		(text "volume[3..0]" (rect 159 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 216 224))
 	)
-)
-(connector
-	(pt 288 144)
-	(pt 256 144)
 )
 (connector
 	(pt -56 136)
@@ -498,14 +517,6 @@ agreement for further details.
 	(pt -56 248)
 	(pt -56 440)
 	(bus)
-)
-(connector
-	(pt 256 144)
-	(pt 256 120)
-)
-(connector
-	(pt 256 120)
-	(pt 240 120)
 )
 (connector
 	(pt 240 104)
@@ -615,4 +626,13 @@ agreement for further details.
 (connector
 	(pt 8 152)
 	(pt -40 152)
+)
+(connector
+	(pt 240 120)
+	(pt 304 120)
+)
+(connector
+	(pt 240 136)
+	(pt 304 136)
+	(bus)
 )

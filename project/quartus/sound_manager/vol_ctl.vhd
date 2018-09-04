@@ -12,32 +12,32 @@ port(
   vol_down					: in std_logic;
   sound_in 					: in std_logic_vector(15 downto 0);
   sound_out 				: out std_logic_vector(15 downto 0);
-  vol_out					: out std_logic_vector(2 downto 0)
+  vol_out					: out std_logic_vector(3 downto 0)
 );
 end vol_ctl;
 
 architecture vol_ctl_arch of vol_ctl is
 
-signal volume : std_logic_vector(2 downto 0);
-signal temp : std_logic_vector(18 downto 0);
+signal volume : std_logic_vector(3 downto 0);
+signal temp : std_logic_vector(19 downto 0);
 
  begin
 
-vol_out <= volume;
+vol_out <= volume - 3;
 temp <= sound_in * volume;
-sound_out <= temp(17 downto 2);
+sound_out <= temp(19 downto 4);
  
 process(clk, resetN)
  begin
 		if resetN = '0' then
-			volume <= "100";
+			volume <= "1011";
 		elsif rising_edge (clk) then
 			if vol_up = '1' then
-				if volume /= "111" then
+				if volume /= "1100" then
 					volume <= volume + 1;
 				end if;
 			elsif vol_down = '1' then
-				if volume /= "000" then
+				if volume /= "0100" then
 					volume <= volume - 1;
 				end if;
 			end if;

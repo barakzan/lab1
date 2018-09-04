@@ -122,6 +122,13 @@ agreement for further details.
 		(text "test_led" (rect 181 43 211 55)(font "Arial" ))
 		(line (pt 232 48)(pt 216 48)(line_width 1))
 	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "volume[3..0]" (rect 0 0 49 12)(font "Arial" ))
+		(text "volume[3..0]" (rect 162 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 216 224)(line_width 1))
 	)

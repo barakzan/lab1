@@ -22,7 +22,7 @@ entity sound_manager_code is
 		   releaseRounder		: IN INTEGER  RANGE 0 to 32				;			
 			sound					: out std_logic_vector(15 downto 0) 	;		
 			test_led 			: out std_logic								;
-			volume				: out std_logic_vector(2 downto 0) 		
+			volume				: out std_logic_vector(3 downto 0) 		
 	    );
 end sound_manager_code ;
 
@@ -119,7 +119,7 @@ port(
   vol_down					: in std_logic;
   sound_in 					: in std_logic_vector(15 downto 0);
   sound_out 				: out std_logic_vector(15 downto 0);
-  vol_out						: out std_logic_vector(2 downto 0)
+  vol_out						: out std_logic_vector(3 downto 0)
 );
 end component;
 
