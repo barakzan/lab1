@@ -4,7 +4,7 @@
 // MODULE: LPM_CONSTANT 
 
 // ============================================================
-// File Name: sustainFactorLPM.v
+// File Name: releaseFactorSlowLPM.v
 // Megafunction Name(s):
 // 			LPM_CONSTANT
 //
@@ -37,7 +37,7 @@
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module sustainFactorLPM (
+module releaseFactorSlowLPM (
 	result);
 
 	output	[9:0]  result;
@@ -48,8 +48,8 @@ module sustainFactorLPM (
 	lpm_constant	LPM_CONSTANT_component (
 				.result (sub_wire0));
 	defparam
-		LPM_CONSTANT_component.lpm_cvalue = 682,
-		LPM_CONSTANT_component.lpm_hint = "ENABLE_RUNTIME_MOD=YES, INSTANCE_NAME=SU_F",
+		LPM_CONSTANT_component.lpm_cvalue = 512,
+		LPM_CONSTANT_component.lpm_hint = "ENABLE_RUNTIME_MOD=YES, INSTANCE_NAME=reFS",
 		LPM_CONSTANT_component.lpm_type = "LPM_CONSTANT",
 		LPM_CONSTANT_component.lpm_width = 10;
 
@@ -61,23 +61,23 @@ endmodule
 // ============================================================
 // Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Cyclone V"
 // Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "1"
-// Retrieval info: PRIVATE: JTAG_ID STRING "SU_F"
+// Retrieval info: PRIVATE: JTAG_ID STRING "reFS"
 // Retrieval info: PRIVATE: Radix NUMERIC "10"
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
-// Retrieval info: PRIVATE: Value NUMERIC "50"
-// Retrieval info: PRIVATE: nBit NUMERIC "9"
+// Retrieval info: PRIVATE: Value NUMERIC "512"
+// Retrieval info: PRIVATE: nBit NUMERIC "10"
 // Retrieval info: PRIVATE: new_diagram STRING "1"
 // Retrieval info: LIBRARY: lpm lpm.lpm_components.all
-// Retrieval info: CONSTANT: LPM_CVALUE NUMERIC "50"
-// Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=YES, INSTANCE_NAME=SU_F"
+// Retrieval info: CONSTANT: LPM_CVALUE NUMERIC "512"
+// Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=YES, INSTANCE_NAME=reFS"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_CONSTANT"
-// Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "9"
-// Retrieval info: USED_PORT: result 0 0 9 0 OUTPUT NODEFVAL "result[8..0]"
-// Retrieval info: CONNECT: result 0 0 9 0 @result 0 0 9 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL sustainFactorLPM.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL sustainFactorLPM.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL sustainFactorLPM.cmp TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL sustainFactorLPM.bsf TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL sustainFactorLPM_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL sustainFactorLPM_bb.v TRUE
+// Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "10"
+// Retrieval info: USED_PORT: result 0 0 10 0 OUTPUT NODEFVAL "result[9..0]"
+// Retrieval info: CONNECT: result 0 0 10 0 @result 0 0 10 0
+// Retrieval info: GEN_FILE: TYPE_NORMAL releaseFactorSlowLPM.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL releaseFactorSlowLPM.inc TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL releaseFactorSlowLPM.cmp TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL releaseFactorSlowLPM.bsf TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL releaseFactorSlowLPM_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL releaseFactorSlowLPM_bb.v TRUE
 // Retrieval info: LIB_FILE: lpm
