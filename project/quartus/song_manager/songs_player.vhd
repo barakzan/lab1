@@ -9,6 +9,10 @@ entity songs_player is
           clk        : in  std_logic                       ;
           enable	   : in  std_logic                       ;
 			 delay	   : in  std_logic_vector(6 downto 0)   ;
+			 esc			: in  std_logic;
+			 key1			: in  std_logic;
+			 key2			: in  std_logic;
+			 key3			: in  std_logic;
 			 new_note   : out std_logic							  ;
           dout_draw  : out std_logic_vector(0 to 23)   ;
 			 dout_sound : out std_logic_vector(0 to 23)
