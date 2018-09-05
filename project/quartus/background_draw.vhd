@@ -25,6 +25,7 @@ architecture background_draw_arch of background_draw is
 -- Constants for frame drawing
 constant	x_frame	: integer :=	639;
 constant	y_frame	: integer :=	479;
+constant	y_start_gray	: integer :=	470;
 constant	int_frame	: integer :=	10;
 
 constant	start_white_y	: integer :=	381;
@@ -198,10 +199,18 @@ begin
 			mVGA_G <= "000";	
 			mVGA_B <= "00" ;
 		else
-			mVGA_R <= "111";	
-			mVGA_G <= "111";	
-			mVGA_B <= "11" ;
+			if (oCoord_y > y_start_gray) then
+				mVGA_R <= "011";	
+				mVGA_G <= "100";	
+				mVGA_B <= "10" ;
+			else
+				mVGA_R <= "111";	
+				mVGA_G <= "111";	
+				mVGA_B <= "11" ;
+			end if;	
 		end if;
+		
+
 	end if ; 
 
 end process ; 

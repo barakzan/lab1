@@ -40,18 +40,18 @@
 module releaseFactorLPM (
 	result);
 
-	output	[8:0]  result;
+	output	[9:0]  result;
 
-	wire [8:0] sub_wire0;
-	wire [8:0] result = sub_wire0[8:0];
+	wire [9:0] sub_wire0;
+	wire [9:0] result = sub_wire0[9:0];
 
 	lpm_constant	LPM_CONSTANT_component (
 				.result (sub_wire0));
 	defparam
-		LPM_CONSTANT_component.lpm_cvalue = 511,
+		LPM_CONSTANT_component.lpm_cvalue = 938,
 		LPM_CONSTANT_component.lpm_hint = "ENABLE_RUNTIME_MOD=YES, INSTANCE_NAME=RE_F",
 		LPM_CONSTANT_component.lpm_type = "LPM_CONSTANT",
-		LPM_CONSTANT_component.lpm_width = 9;
+		LPM_CONSTANT_component.lpm_width = 10;
 
 
 endmodule

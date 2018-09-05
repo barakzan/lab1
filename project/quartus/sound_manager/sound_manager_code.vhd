@@ -11,18 +11,21 @@ entity sound_manager_code is
 			clk 					: in std_logic									;
 			resetN 				: in std_logic									;
 			vol_up				: in std_logic									;
-			vol_down				: in std_logic									;			
+			vol_down				: in std_logic									;
+			space_key			: in std_logic									;			
 			keys 					: in std_logic_vector(0 to 23) 			;
-		   attackFactor      : IN INTEGER  RANGE 0 to 4095				;
-		   decayFactor 		: IN INTEGER  RANGE 0 to 511				;
-		   sustainFactor 		: IN INTEGER  RANGE 0 to 511				;
-		   releaseFactor 		: IN INTEGER  RANGE 0 to 511				;
-		   attackRounder		: IN INTEGER  RANGE 0 to 128				;
-		   decayRounder		: IN INTEGER  RANGE 0 to 32				;
-		   releaseRounder		: IN INTEGER  RANGE 0 to 32				;			
+			attackFactor      : IN INTEGER  RANGE 0 to 4095				;
+			decayFactor 		: IN INTEGER  RANGE 0 to 1023				;
+			sustainFactor 		: IN INTEGER  RANGE 0 to 1023				;
+			sustainFactorSlow	: IN INTEGER  RANGE 0 to 1023				;
+			releaseFactor 		: IN INTEGER  RANGE 0 to 1023				;
+			releaseFactorSlow : IN INTEGER  RANGE 0 to 1023				;
+			attackRounder		: IN INTEGER  RANGE 0 to 255				;
+			decayRounder		: IN INTEGER  RANGE 0 to 63				;
+			releaseRounder		: IN INTEGER  RANGE 0 to 63				;			
 			sound					: out std_logic_vector(15 downto 0) 	;		
 			test_led 			: out std_logic								;
-			volume				: out std_logic_vector(2 downto 0) 		
+			volume				: out std_logic_vector(3 downto 0) 		
 	    );
 end sound_manager_code ;
 
@@ -61,20 +64,19 @@ end component;
 
 component adsr is
 	port(
-		  CLK     					: in std_logic								;
-		  resetN 					: in std_logic								;
-		  en							: in std_logic								;
-		  in_note  					: in std_logic_vector(15 downto 0)	;
-		  attackFactor          : IN INTEGER  RANGE 0 to 4095			;
-		  decayFactor 				: IN INTEGER  RANGE 0 to 511			;
-		  sustainFactor 			: IN INTEGER  RANGE 0 to 511			;
-		  releaseFactor 			: IN INTEGER  RANGE 0 to 511			;
-		  attackRounder			: IN INTEGER  RANGE 0 to 128			;
-		  decayRounder				: IN INTEGER  RANGE 0 to 32			;
-		  releaseRounder			: IN INTEGER  RANGE 0 to 32			;
-		  
-		  test_led					: out std_logic;
-		  out_note 					: out std_logic_vector(15 downto 0)
+  CLK     					: in std_logic;
+  resetN 					: in std_logic;
+  en							: in std_logic;
+  in_note  					: in std_logic_vector(15 downto 0);
+  attackFactor          : IN INTEGER  RANGE 0 to 4095;
+  decayFactor 				: IN INTEGER  RANGE 0 to 1023;
+  sustainFactor 			: IN INTEGER  RANGE 0 to 1023;
+  releaseFactor 			: IN INTEGER  RANGE 0 to 1023;
+  attackRounder			: IN INTEGER  RANGE 0 to 255;
+  decayRounder				: IN INTEGER  RANGE 0 to 63;
+  releaseRounder			: IN INTEGER  RANGE 0 to 63;
+  test_led					: out std_logic;
+  out_note 					: out std_logic_vector(15 downto 0)
 		 );
 end component;
 
@@ -119,7 +121,7 @@ port(
   vol_down					: in std_logic;
   sound_in 					: in std_logic_vector(15 downto 0);
   sound_out 				: out std_logic_vector(15 downto 0);
-  vol_out						: out std_logic_vector(2 downto 0)
+  vol_out						: out std_logic_vector(3 downto 0)
 );
 end component;
 
@@ -203,9 +205,27 @@ end component;
   signal note23	: std_logic_vector(15 downto 0)						;
   
   signal all_notes : std_logic_vector(15 downto 0)						;
+  
+  signal sustainStatus		 : std_logic									;
+  signal sustainFactorValue : INTEGER  RANGE 0 to 1023				;
+  signal releaseFactorValue : INTEGER  RANGE 0 to 1023				;
 
  begin
-
+ 
+ 	PROCESS (clk, resetN)
+	 begin
+		if resetN = '0' then
+			sustainStatus <= '0';
+		elsif rising_edge (clk) then
+			if space_key = '1' then
+				sustainStatus <= not(sustainStatus);
+			end if;
+		end if;
+	end process;
+	
+	sustainFactorValue <= sustainFactor when sustainStatus = '0' else sustainFactorSlow;
+	releaseFactorValue <= releaseFactor when sustainStatus = '0' else releaseFactorSlow;
+	
 	PS0: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1493 ,prescaler_1=>ps(0) );
 	PS1: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1409 ,prescaler_1=>ps(1) );
 	PS2: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1330 ,prescaler_1=>ps(2) );
@@ -281,30 +301,30 @@ end component;
 	sinTable22: sintable port map (CLK=>clk ,resetN=>resetN, ADDR=>addr22, Q=>sin22 );
 	sinTable23: sintable port map (CLK=>clk ,resetN=>resetN, ADDR=>addr23, Q=>sin23 );
  
-	adsr0: adsr port map (clk=>clk, resetN=>resetN, en=>keys(0), in_note=>sin0, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(0) ,out_note=>note0 );
-	adsr1: adsr port map (clk=>clk, resetN=>resetN, en=>keys(1), in_note=>sin1, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(1) ,out_note=>note1 );
-	adsr2: adsr port map (clk=>clk, resetN=>resetN, en=>keys(2), in_note=>sin2, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(2) ,out_note=>note2 );
-	adsr3: adsr port map (clk=>clk, resetN=>resetN, en=>keys(3), in_note=>sin3, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(3) ,out_note=>note3 );
-	adsr4: adsr port map (clk=>clk, resetN=>resetN, en=>keys(4), in_note=>sin4, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(4) ,out_note=>note4 );
-	adsr5: adsr port map (clk=>clk, resetN=>resetN, en=>keys(5), in_note=>sin5, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(5) ,out_note=>note5 );
-	adsr6: adsr port map (clk=>clk, resetN=>resetN, en=>keys(6), in_note=>sin6, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(6) ,out_note=>note6 );
-	adsr7: adsr port map (clk=>clk, resetN=>resetN, en=>keys(7), in_note=>sin7, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(7) ,out_note=>note7 );
-	adsr8: adsr port map (clk=>clk, resetN=>resetN, en=>keys(8), in_note=>sin8, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(8) ,out_note=>note8 );
-	adsr9: adsr port map (clk=>clk, resetN=>resetN, en=>keys(9), in_note=>sin9, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(9) ,out_note=>note9 );
-	adsr10: adsr port map (clk=>clk, resetN=>resetN, en=>keys(10), in_note=>sin10, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(10) ,out_note=>note10 );
-	adsr11: adsr port map (clk=>clk, resetN=>resetN, en=>keys(11), in_note=>sin11, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(11) ,out_note=>note11 );
-	adsr12: adsr port map (clk=>clk, resetN=>resetN, en=>keys(12), in_note=>sin12, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(12) ,out_note=>note12 );
-	adsr13: adsr port map (clk=>clk, resetN=>resetN, en=>keys(13), in_note=>sin13, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(13) ,out_note=>note13 );
-	adsr14: adsr port map (clk=>clk, resetN=>resetN, en=>keys(14), in_note=>sin14, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(14) ,out_note=>note14 );
-	adsr15: adsr port map (clk=>clk, resetN=>resetN, en=>keys(15), in_note=>sin15, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(15) ,out_note=>note15 );
-	adsr16: adsr port map (clk=>clk, resetN=>resetN, en=>keys(16), in_note=>sin16, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(16) ,out_note=>note16 );
-	adsr17: adsr port map (clk=>clk, resetN=>resetN, en=>keys(17), in_note=>sin17, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(17) ,out_note=>note17 );
-	adsr18: adsr port map (clk=>clk, resetN=>resetN, en=>keys(18), in_note=>sin18, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(18) ,out_note=>note18 );
-	adsr19: adsr port map (clk=>clk, resetN=>resetN, en=>keys(19), in_note=>sin19, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(19) ,out_note=>note19 );
-	adsr20: adsr port map (clk=>clk, resetN=>resetN, en=>keys(20), in_note=>sin20, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(20) ,out_note=>note20 );
-	adsr21: adsr port map (clk=>clk, resetN=>resetN, en=>keys(21), in_note=>sin21, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(21) ,out_note=>note21 );
-	adsr22: adsr port map (clk=>clk, resetN=>resetN, en=>keys(22), in_note=>sin22, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(22) ,out_note=>note22 );
-	adsr23: adsr port map (clk=>clk, resetN=>resetN, en=>keys(23), in_note=>sin23, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactor,releaseFactor=>releaseFactor, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(23) ,out_note=>note23 );
+	adsr0: adsr port map (clk=>clk, resetN=>resetN, en=>keys(0), in_note=>sin0, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(0) ,out_note=>note0 );
+	adsr1: adsr port map (clk=>clk, resetN=>resetN, en=>keys(1), in_note=>sin1, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(1) ,out_note=>note1 );
+	adsr2: adsr port map (clk=>clk, resetN=>resetN, en=>keys(2), in_note=>sin2, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(2) ,out_note=>note2 );
+	adsr3: adsr port map (clk=>clk, resetN=>resetN, en=>keys(3), in_note=>sin3, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(3) ,out_note=>note3 );
+	adsr4: adsr port map (clk=>clk, resetN=>resetN, en=>keys(4), in_note=>sin4, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(4) ,out_note=>note4 );
+	adsr5: adsr port map (clk=>clk, resetN=>resetN, en=>keys(5), in_note=>sin5, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(5) ,out_note=>note5 );
+	adsr6: adsr port map (clk=>clk, resetN=>resetN, en=>keys(6), in_note=>sin6, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(6) ,out_note=>note6 );
+	adsr7: adsr port map (clk=>clk, resetN=>resetN, en=>keys(7), in_note=>sin7, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(7) ,out_note=>note7 );
+	adsr8: adsr port map (clk=>clk, resetN=>resetN, en=>keys(8), in_note=>sin8, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(8) ,out_note=>note8 );
+	adsr9: adsr port map (clk=>clk, resetN=>resetN, en=>keys(9), in_note=>sin9, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(9) ,out_note=>note9 );
+	adsr10: adsr port map (clk=>clk, resetN=>resetN, en=>keys(10), in_note=>sin10, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(10) ,out_note=>note10 );
+	adsr11: adsr port map (clk=>clk, resetN=>resetN, en=>keys(11), in_note=>sin11, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(11) ,out_note=>note11 );
+	adsr12: adsr port map (clk=>clk, resetN=>resetN, en=>keys(12), in_note=>sin12, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(12) ,out_note=>note12 );
+	adsr13: adsr port map (clk=>clk, resetN=>resetN, en=>keys(13), in_note=>sin13, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(13) ,out_note=>note13 );
+	adsr14: adsr port map (clk=>clk, resetN=>resetN, en=>keys(14), in_note=>sin14, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(14) ,out_note=>note14 );
+	adsr15: adsr port map (clk=>clk, resetN=>resetN, en=>keys(15), in_note=>sin15, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(15) ,out_note=>note15 );
+	adsr16: adsr port map (clk=>clk, resetN=>resetN, en=>keys(16), in_note=>sin16, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(16) ,out_note=>note16 );
+	adsr17: adsr port map (clk=>clk, resetN=>resetN, en=>keys(17), in_note=>sin17, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(17) ,out_note=>note17 );
+	adsr18: adsr port map (clk=>clk, resetN=>resetN, en=>keys(18), in_note=>sin18, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(18) ,out_note=>note18 );
+	adsr19: adsr port map (clk=>clk, resetN=>resetN, en=>keys(19), in_note=>sin19, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(19) ,out_note=>note19 );
+	adsr20: adsr port map (clk=>clk, resetN=>resetN, en=>keys(20), in_note=>sin20, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(20) ,out_note=>note20 );
+	adsr21: adsr port map (clk=>clk, resetN=>resetN, en=>keys(21), in_note=>sin21, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(21) ,out_note=>note21 );
+	adsr22: adsr port map (clk=>clk, resetN=>resetN, en=>keys(22), in_note=>sin22, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(22) ,out_note=>note22 );
+	adsr23: adsr port map (clk=>clk, resetN=>resetN, en=>keys(23), in_note=>sin23, attackFactor=>attackFactor, decayFactor=>decayFactor, sustainFactor=>sustainFactorValue,releaseFactor=>releaseFactorValue, attackRounder=>attackRounder, decayRounder=>decayRounder, releaseRounder=>releaseRounder, test_led=>enables(23) ,out_note=>note23 );
 	
 	note_addr : addr_note port map (clk=>clk, enables=>enables, note0=>note0, note1=>note1, note2=>note2, note3=>note3, note4=>note4, note5=>note5, note6=>note6, 
 											  note7=>note7, note8=>note8, note9=>note9, note10=>note10, note11=>note11, note12=>note12, note13=>note13,  

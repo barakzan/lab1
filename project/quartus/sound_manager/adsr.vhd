@@ -10,14 +10,13 @@ port(
   resetN 					: in std_logic;
   en							: in std_logic;
   in_note  					: in std_logic_vector(15 downto 0);
-  attackFactor          : IN INTEGER  RANGE 0 to 4095;--2800
-  decayFactor 				: IN INTEGER  RANGE 0 to 511;--450
-  sustainFactor 			: IN INTEGER  RANGE 0 to 511;--50
-  releaseFactor 			: IN INTEGER  RANGE 0 to 511;--260
-  attackRounder			: IN INTEGER  RANGE 0 to 128;--80
-  decayRounder				: IN INTEGER  RANGE 0 to 32;--4
-  releaseRounder			: IN INTEGER  RANGE 0 to 32;--4
-  
+  attackFactor          : IN INTEGER  RANGE 0 to 4095;
+  decayFactor 				: IN INTEGER  RANGE 0 to 1023;
+  sustainFactor 			: IN INTEGER  RANGE 0 to 1023;
+  releaseFactor 			: IN INTEGER  RANGE 0 to 1023;
+  attackRounder			: IN INTEGER  RANGE 0 to 255;
+  decayRounder				: IN INTEGER  RANGE 0 to 63;
+  releaseRounder			: IN INTEGER  RANGE 0 to 63;
   test_led					: out std_logic;
   out_note 					: out std_logic_vector(15 downto 0)
 );
@@ -65,11 +64,7 @@ signal out_n : std_logic_vector(31 downto 0);
 	test_led <= '1' when amplifier > 950 else '0';
 		
 	PROCESS (slowClk, resetN)
-	--constant attackFactor : integer := 2500 ;
-	--constant decayFactor : integer := 300 ;
-	--constant sustainFactor : integer := 180 ;
-	--constant releaseFactor : integer := 220 ;
-	variable rounder : integer range 0 to 8191;
+	variable rounder : integer range 0 to 4095;
 		begin
 			if resetN = '0' then
 				amplifier <= (others => '0');
