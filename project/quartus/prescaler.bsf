@@ -41,8 +41,8 @@ agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "count_limit[22..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "count_limit[22..0]" (rect 21 59 87 71)(font "Arial" ))
+		(text "count_limit[24..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "count_limit[24..0]" (rect 21 59 88 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port

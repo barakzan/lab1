@@ -5,12 +5,13 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 ENTITY song_speed_controller IS
-GENERIC ( COUNT_SIZE		: INTEGER := 23);
+GENERIC ( COUNT_SIZE		: INTEGER := 25);
 PORT (
 			clk				:	IN	STD_LOGIC;	
 			resetN			:	IN	STD_LOGIC;
 			up					: 	in  std_logic ;
 			down				: 	in  std_logic ;
+			speed				:  out std_logic_vector(3 downto 0);
 			freq				: 	out std_logic_vector(COUNT_SIZE - 1 downto 0)
 		);
 
@@ -18,7 +19,8 @@ END song_speed_controller;
 
 architecture song_speed_controller_arch of song_speed_controller is
 
-constant array_size 			: integer := 5;
+constant DEFAULT_SPEED		: integer := 3;
+constant array_size 			: integer := 8;
 type table_type is array(0 to array_size - 1) of std_logic_vector(COUNT_SIZE - 1 downto 0);
 signal speed_table				: table_type;
 
@@ -30,17 +32,21 @@ begin
 	process(clk, resetN)
 
 	constant speed_table : table_type := (
-		std_logic_vector(to_unsigned(5000000, COUNT_SIZE)), -- 10   hz
-		std_logic_vector(to_unsigned(4000000, COUNT_SIZE)), -- 12.5 hz
-		std_logic_vector(to_unsigned(3333333, COUNT_SIZE)), -- 15   hz
-		std_logic_vector(to_unsigned(2857143, COUNT_SIZE)), -- 17.5 hz
-		std_logic_vector(to_unsigned(2500000, COUNT_SIZE))  -- 20   hz
+		std_logic_vector(to_unsigned(20000000, COUNT_SIZE)), -- 2.5  hz
+		std_logic_vector(to_unsigned(10000000, COUNT_SIZE)), -- 5    hz
+		std_logic_vector(to_unsigned(6666667, COUNT_SIZE)),  -- 7.5  hz
+		std_logic_vector(to_unsigned(5000000, COUNT_SIZE)),  -- 10   hz
+		std_logic_vector(to_unsigned(4000000, COUNT_SIZE)),  -- 12.5 hz
+		std_logic_vector(to_unsigned(3333333, COUNT_SIZE)),  -- 15   hz
+		std_logic_vector(to_unsigned(2857143, COUNT_SIZE)),  -- 17.5 hz
+		std_logic_vector(to_unsigned(2500000, COUNT_SIZE))   -- 20   hz
 		);
 	variable index : integer;
 	
 	begin
 		if resetN = '0' then
-			index := 0;
+			index := DEFAULT_SPEED;
+			speed <= std_logic_vector(to_unsigned(index, 4));
 			freq_out <= speed_table(index);
 		elsif rising_edge(clk) then
 			if up = '1' AND down = '0' then 		-- up pressed
@@ -53,6 +59,7 @@ begin
 				end if;
 			end if;
 			
+			speed <= std_logic_vector(to_unsigned(index, 4));
 			freq_out <= speed_table(index);
 		end if;
 	end process;

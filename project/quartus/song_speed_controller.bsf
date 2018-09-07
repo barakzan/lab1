@@ -55,13 +55,20 @@ agreement for further details.
 	(port
 		(pt 208 32)
 		(output)
-		(text "freq[count_size-1..0]" (rect 0 0 79 12)(font "Arial" ))
-		(text "freq[count_size-1..0]" (rect 108 27 187 39)(font "Arial" ))
+		(text "speed[3..0]" (rect 0 0 43 12)(font "Arial" ))
+		(text "speed[3..0]" (rect 144 27 187 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "freq[count_size-1..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "freq[count_size-1..0]" (rect 108 43 187 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48)(line_width 3))
 	)
 	(parameter
 		"COUNT_SIZE"
-		"23"
+		"25"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
