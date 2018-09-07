@@ -438,14 +438,17 @@ variable addr       : integer;
 			when reset =>
 				if key1 = '1' and key2 = '0' and key3 = '0' then -- song1
 					addr := start_song1;
+					start_addr := start_song1;
 					end_addr := start_song2 - 1;
 					state <= playing;
 				elsif key1 = '0' and key2 = '1' and key3 = '0' then -- song2
 					addr := start_song2;
+					start_addr := start_song2;
 					end_addr := start_song3 - 1;
 					state <= playing;
 				elsif key1 = '0' and key2 = '0' and key3 = '1' then -- song3
 					addr := start_song3;
+					start_addr := start_song3;
 					end_addr := array_size - 1;
 					state <= playing;
 				end if;
