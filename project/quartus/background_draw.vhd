@@ -200,17 +200,21 @@ begin
 			mVGA_B <= "00" ;
 		else
 			if (oCoord_y > y_start_gray) then
-				mVGA_R <= "011";	
-				mVGA_G <= "100";	
-				mVGA_B <= "10" ;
+				if oCoord_y > y_start_gray + 1 then
+					mVGA_R <= "011";	
+					mVGA_G <= "100";	
+					mVGA_B <= "10" ;
+				else
+					mVGA_R <= "000";	
+					mVGA_G <= "001";	
+					mVGA_B <= "01" ;
+				end if;
 			else
 				mVGA_R <= "111";	
 				mVGA_G <= "111";	
 				mVGA_B <= "11" ;
 			end if;	
 		end if;
-		
-
 	end if ; 
 
 end process ; 

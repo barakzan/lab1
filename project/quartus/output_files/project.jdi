@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="90912984016ca05028d3"/>
+    <hash md5_digest_80b="8943208cc1eb354fb343"/>
   </project>
   <file_info>
     <file device="5CSXFC6D6F31C6" path="project.sof" usercode="0xFFFFFFFF"/>
@@ -369,7 +369,7 @@
         <port name="jtag.bp.inst3_inst2_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|releaseRounderLPM:inst44|lpm_constant:LPM_CONSTANT_component|lpm_constant_4i8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="6" mfg_id="110" node_id="3" sld_node_info="0x10186E06" version="2">
+    <node hpath="sound_manager:inst3|releaseRounderLPM:inst44|lpm_constant:LPM_CONSTANT_component|lpm_constant_cg8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="6" mfg_id="110" node_id="3" sld_node_info="0x10186E06" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -380,7 +380,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="3"/>
-        <parameter name="cvalue" type="unknown" value="111111"/>
+        <parameter name="cvalue" type="unknown" value="100000"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>
@@ -426,7 +426,7 @@
         <port name="jtag.bp.inst3_inst44_LPM_CONSTANT_component_ag_mgl_prim1_tdo"/>
       </outputs>
     </node>
-    <node hpath="sound_manager:inst3|sustainFactorLPM:inst41|lpm_constant:LPM_CONSTANT_component|lpm_constant_em8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="7" mfg_id="110" node_id="3" sld_node_info="0x10186E07" version="2">
+    <node hpath="sound_manager:inst3|sustainFactorLPM:inst41|lpm_constant:LPM_CONSTANT_component|lpm_constant_fm8:ag|sld_mod_ram_rom:mgl_prim1" instance_id="7" mfg_id="110" node_id="3" sld_node_info="0x10186E07" version="2">
       <parameters>
         <parameter name="SLD_NODE_INFO" type="dec" value="270036480"/>
         <parameter name="SLD_AUTO_INSTANCE_INDEX" type="string" value="yes"/>
@@ -437,7 +437,7 @@
         <parameter name="numwords" type="unknown" value="1"/>
         <parameter name="widthad" type="unknown" value="1"/>
         <parameter name="shift_count_bits" type="unknown" value="4"/>
-        <parameter name="cvalue" type="unknown" value="1010101010"/>
+        <parameter name="cvalue" type="unknown" value="1110101010"/>
         <parameter name="is_data_in_ram" type="unknown" value="0"/>
         <parameter name="is_readable" type="unknown" value="0"/>
         <parameter name="BACKPRESSURE_ENABLED" type="dec" value="0"/>

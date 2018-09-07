@@ -33,7 +33,7 @@ set_location_assignment PIN_AB30 -to sw0
 ##set_location_assignment PIN_AC28 -to SW[6]
 ##set_location_assignment PIN_AD30 -to SW[7]
 ##set_location_assignment PIN_AC29 -to SW[8]
-##set_location_assignment PIN_AA30 -to SW[9]
+set_location_assignment PIN_AA30 -to sw9
 #
 ##============================================================
 ## LED

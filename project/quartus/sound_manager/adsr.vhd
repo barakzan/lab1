@@ -29,7 +29,7 @@ architecture adsr_arch of adsr is
 		(
 			CLK_IN				:	IN  STD_LOGIC;	
 			resetN				:  IN	 STD_LOGIC;
-			count_limit       :  IN  integer  RANGE 0 to 8388607;
+			count_limit       :  IN  integer  RANGE 0 to 33554431;
 			prescaler_1	 		:	OUT STD_LOGIC;
 			prescaler_2	 		:	OUT STD_LOGIC 
 		);
