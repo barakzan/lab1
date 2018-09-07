@@ -19,12 +19,12 @@ end vol_ctl;
 architecture vol_ctl_arch of vol_ctl is
 
 signal volume : std_logic_vector(3 downto 0);
-signal temp : std_logic_vector(19 downto 0);
+signal temp : std_logic_vector(20 downto 0);
 
  begin
 
 vol_out <= volume - 3;
-temp <= sound_in * volume;
+temp <= sound_in * (volume & "0");
 sound_out <= temp(19 downto 4);
  
 process(clk, resetN)
