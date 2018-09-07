@@ -120,10 +120,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "test_led_out",
-					"strict" : false
-				},
-				{
 					"name" : "hex_first[6]",
 					"strict" : false
 				},
@@ -208,6 +204,38 @@
 					"strict" : false
 				},
 				{
+					"name" : "song_speed[6]",
+					"strict" : false
+				},
+				{
+					"name" : "song_speed[5]",
+					"strict" : false
+				},
+				{
+					"name" : "song_speed[4]",
+					"strict" : false
+				},
+				{
+					"name" : "song_speed[3]",
+					"strict" : false
+				},
+				{
+					"name" : "song_speed[2]",
+					"strict" : false
+				},
+				{
+					"name" : "song_speed[1]",
+					"strict" : false
+				},
+				{
+					"name" : "song_speed[0]",
+					"strict" : false
+				},
+				{
+					"name" : "test_led_out",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},
@@ -229,6 +257,10 @@
 				},
 				{
 					"name" : "KBD_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "sw8",
 					"strict" : false
 				}
 			]

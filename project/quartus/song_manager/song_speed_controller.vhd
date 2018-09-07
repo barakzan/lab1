@@ -19,7 +19,7 @@ END song_speed_controller;
 
 architecture song_speed_controller_arch of song_speed_controller is
 
-constant DEFAULT_SPEED		: integer := 3;
+constant DEFAULT_SPEED		: integer := 4;
 constant array_size 			: integer := 8;
 type table_type is array(0 to array_size - 1) of std_logic_vector(COUNT_SIZE - 1 downto 0);
 signal speed_table				: table_type;

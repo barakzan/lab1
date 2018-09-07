@@ -185,7 +185,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AC14      :        :                   :      
 VCCPD3B4A                    : AC15      : power  :                   : 3.3V    : 3B, 4A    :                
 GND                          : AC16      : gnd    :                   :         :           :                
 VCCPD3B4A                    : AC17      : power  :                   : 3.3V    : 3B, 4A    :                
-MICROPHON_ON                 : AC18      : input  : 3.3-V LVTTL       :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : AC18      :        :                   :         : 4A        :                
 VCCPD3B4A                    : AC19      : power  :                   : 3.3V    : 3B, 4A    :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC20      :        :                   :         : 4A        :                
 VCCIO4A                      : AC21      : power  :                   : 3.3V    : 4A        :                
@@ -196,7 +196,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AC25      :        :                   :      
 GND                          : AC26      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC27      :        :                   :         : 5A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC28      :        :                   :         : 5B        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AC29      :        :                   :         : 5B        :                
+sw8                          : AC29      : input  : 3.3-V LVTTL       :         : 5B        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC30      :        :                   :         : 5B        :                
 GND                          : AD1       : gnd    :                   :         :           :                
 GND                          : AD2       : gnd    :                   :         :           :                
@@ -217,8 +217,8 @@ VCCPD3B4A                    : AD16      : power  :                   : 3.3V    
 hex_second[3]                : AD17      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AD18      : power  :                   : 3.3V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD19      :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AD20      :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AD21      :        :                   :         : 4A        :                
+MICROPHON_ON                 : AD20      : input  : 3.3-V LVTTL       :         : 4A        : N              
+song_speed[0]                : AD21      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VCC_AUX                      : AD22      : power  :                   : 2.5V    :           :                
 GND                          : AD23      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD24      :        :                   :         : 4A        :                
@@ -249,8 +249,8 @@ hex_second[4]                : AE18      : output : 3.3-V LVTTL       :         
 volume[4]                    : AE19      : output : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AE20      : gnd    :                   :         :           :                
 VCCPD3B4A                    : AE21      : power  :                   : 3.3V    : 3B, 4A    :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AE22      :        :                   :         : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AE23      :        :                   :         : 4A        :                
+song_speed[2]                : AE22      : output : 3.3-V LVTTL       :         : 4A        : Y              
+song_speed[3]                : AE23      : output : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE24      :        :                   :         : 4A        :                
 VCCIO4A                      : AE25      : power  :                   : 3.3V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AE26      :        :                   :         : 5A        :                
@@ -280,7 +280,7 @@ volume[5]                    : AF19      : output : 3.3-V LVTTL       :         
 volume[2]                    : AF20      : output : 3.3-V LVTTL       :         : 4A        : Y              
 volume[0]                    : AF21      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VCCIO4A                      : AF22      : power  :                   : 3.3V    : 4A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AF23      :        :                   :         : 4A        :                
+song_speed[5]                : AF23      : output : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF24      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF25      :        :                   :         : 4A        :                
 VGA_R[5]                     : AF26      : output : 3.3-V LVTTL       :         : 4A        : Y              
@@ -309,8 +309,8 @@ hex_first[5]                 : AG18      : output : 3.3-V LVTTL       :         
 VCCIO4A                      : AG19      : power  :                   : 3.3V    : 4A        :                
 volume[3]                    : AG20      : output : 3.3-V LVTTL       :         : 4A        : Y              
 volume[1]                    : AG21      : output : 3.3-V LVTTL       :         : 4A        : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : AG22      :        :                   :         : 4A        :                
-MICROPHON_LED                : AG23      : output : 3.3-V LVTTL       :         : 4A        : N              
+song_speed[1]                : AG22      : output : 3.3-V LVTTL       :         : 4A        : Y              
+song_speed[4]                : AG23      : output : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AG24      : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG25      :        :                   :         : 4A        :                
 VGA_R[6]                     : AG26      : output : 3.3-V LVTTL       :         : 4A        : Y              
@@ -339,7 +339,7 @@ hex_first[6]                 : AH18      : output : 3.3-V LVTTL       :         
 VGA_B[4]                     : AH19      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VGA_B[2]                     : AH20      : output : 3.3-V LVTTL       :         : 4A        : Y              
 GND                          : AH21      : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : AH22      :        :                   :         : 4A        :                
+song_speed[6]                : AH22      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VGA_G[7]                     : AH23      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VGA_G[5]                     : AH24      : output : 3.3-V LVTTL       :         : 4A        : Y              
 VGA_G[2]                     : AH25      : output : 3.3-V LVTTL       :         : 4A        : Y              
@@ -966,7 +966,7 @@ hex_third[3]                 : Y17       : output : 3.3-V LVTTL       :         
 hex_third[4]                 : Y18       : output : 3.3-V LVTTL       :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y19       :        :                   :         : 4A        :                
 GND                          : Y20       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y21       :        :                   :         : 5A        :                
+MICROPHON_LED                : Y21       : output : 3.3-V LVTTL       :         : 5A        : N              
 VCCA_FPLL                    : Y22       : power  :                   : 2.5V    :           :                
 AUD_I2C_SDAT                 : Y23       : bidir  : 3.3-V LVTTL       :         : 5A        : Y              
 AUD_I2C_SCLK                 : Y24       : output : 3.3-V LVTTL       :         : 5A        : Y              

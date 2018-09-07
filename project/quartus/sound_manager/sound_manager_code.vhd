@@ -12,7 +12,8 @@ entity sound_manager_code is
 			resetN 				: in std_logic									;
 			vol_up				: in std_logic									;
 			vol_down				: in std_logic									;
-			space_key			: in std_logic									;			
+			space_key			: in std_logic									;
+			lowTune				: in std_logic									;
 			keys 					: in std_logic_vector(0 to 23) 			;
 			attackFactor      : IN INTEGER  RANGE 0 to 4095				;
 			decayFactor 		: IN INTEGER  RANGE 0 to 1023				;
@@ -32,6 +33,58 @@ end sound_manager_code ;
 
 
 architecture arc_sound_manager_code of sound_manager_code is
+
+constant	do_c2		: integer :=	2986;
+constant	doD_c2	: integer :=	2818;
+constant	re_c2		: integer :=	2660;
+constant	reD_c2	: integer :=	2511;
+constant	mi_c2		: integer :=	2370;
+constant	fa_c2		: integer :=	2237;
+constant	faD_c2	: integer :=	2112;
+constant	sol_c2	: integer :=	1993;
+constant	solD_c2	: integer :=	1881;
+constant	la_c2 	: integer :=	1776;
+constant	laD_c2	: integer :=	1676;
+constant	si_c2		: integer :=	1582;
+constant	do_c3		: integer :=	1493;
+constant	doD_c3	: integer :=	1409;
+constant	re_c3		: integer :=	1330;
+constant	reD_c3	: integer :=	1255;
+constant	mi_c3		: integer :=	1185;
+constant	fa_c3		: integer :=	1118;
+constant	faD_c3	: integer :=	1056;
+constant	sol_c3	: integer :=	996;
+constant	solD_c3	: integer :=	940;
+constant	la_c3		: integer :=	888;
+constant	laD_c3	: integer :=	838;
+constant	si_c3		: integer :=	791;
+constant	do_c4		: integer :=	746;
+constant	doD_c4	: integer :=	705;
+constant	re_c4		: integer :=	655;
+constant	reD_c4	: integer :=	628;
+constant	mi_c4		: integer :=	592;
+constant	fa_c4		: integer :=	559;
+constant	faD_c4	: integer :=	528;
+constant	sol_c4	: integer :=	498;
+constant	solD_c4	: integer :=	470;
+constant	la_c4		: integer :=	444;
+constant	laD_c4	: integer :=	419;
+constant	si_c4		: integer :=	395;
+constant	do_c5		: integer :=	373;
+constant	doD_c5	: integer :=	352;
+constant	re_c5		: integer :=	333;
+constant	reD_c5	: integer :=	314;
+constant	mi_c5		: integer :=	296;
+constant	fa_c5		: integer :=	280;
+constant	faD_c5	: integer :=	264;
+constant	sol_c5	: integer :=	249;
+constant	solD_c5	: integer :=	235;
+constant	la_c5		: integer :=	222;
+constant	laD_c5	: integer :=	209;
+constant	si_c5		: integer :=	198;
+
+
+
 
 component prescaler is
 	port(
@@ -210,6 +263,31 @@ end component;
   signal sustainFactorValue : INTEGER  RANGE 0 to 1023				;
   signal releaseFactorValue : INTEGER  RANGE 0 to 1023				;
 
+  signal low_do		: INTEGER  RANGE 0 to 33554431					;
+  signal low_doD		: INTEGER  RANGE 0 to 33554431					; 
+  signal low_re 		: INTEGER  RANGE 0 to 33554431					;
+  signal low_reD		: INTEGER  RANGE 0 to 33554431					;
+  signal low_mi 		: INTEGER  RANGE 0 to 33554431					;
+  signal low_fa		: INTEGER  RANGE 0 to 33554431					;
+  signal low_faD 		: INTEGER  RANGE 0 to 33554431					;
+  signal low_sol		: INTEGER  RANGE 0 to 33554431					;
+  signal low_solD		: INTEGER  RANGE 0 to 33554431					;
+  signal low_la 		: INTEGER  RANGE 0 to 33554431					;
+  signal low_laD		: INTEGER  RANGE 0 to 33554431					;
+  signal low_si 		: INTEGER  RANGE 0 to 33554431					;
+  signal high_do 		: INTEGER  RANGE 0 to 33554431					;
+  signal high_doD		: INTEGER  RANGE 0 to 33554431					;
+  signal high_re 		: INTEGER  RANGE 0 to 33554431					;
+  signal high_reD		: INTEGER  RANGE 0 to 33554431					;
+  signal high_mi		: INTEGER  RANGE 0 to 33554431					;
+  signal high_fa		: INTEGER  RANGE 0 to 33554431					;
+  signal high_faD		: INTEGER  RANGE 0 to 33554431					;
+  signal high_sol		: INTEGER  RANGE 0 to 33554431					;
+  signal high_solD	: INTEGER  RANGE 0 to 33554431					;
+  signal high_la		: INTEGER  RANGE 0 to 33554431					;
+  signal high_laD		: INTEGER  RANGE 0 to 33554431					;
+  signal high_si 		: INTEGER  RANGE 0 to 33554431					;
+  
  begin
  
  	PROCESS (clk, resetN)
@@ -223,33 +301,59 @@ end component;
 		end if;
 	end process;
 	
+	low_do <= do_c2 when lowTune = '1' else do_c4;
+	low_doD <= doD_c2 when lowTune = '1' else doD_c4;
+	low_re <= re_c2 when lowTune = '1' else re_c4;
+	low_reD <= reD_c2 when lowTune = '1' else reD_c4;
+	low_mi <= mi_c2 when lowTune = '1' else mi_c4;
+	low_fa <= fa_c2 when lowTune = '1' else fa_c4;
+	low_faD <= faD_c2 when lowTune = '1' else faD_c4;
+	low_sol <= sol_c2 when lowTune = '1' else sol_c4;
+	low_solD <= solD_c2 when lowTune = '1' else solD_c4;
+	low_la <= la_c2 when lowTune = '1' else la_c4;
+	low_laD <= laD_c2 when lowTune = '1' else laD_c4;
+	low_si <= si_c2 when lowTune = '1' else si_c4;
+	
+	high_do <= do_c3 when lowTune = '1' else do_c5;
+	high_doD <= doD_c3 when lowTune = '1' else doD_c5;
+	high_re <= re_c3 when lowTune = '1' else re_c5;
+	high_reD <= reD_c3 when lowTune = '1' else reD_c5;
+	high_mi <= mi_c3 when lowTune = '1' else mi_c5;
+	high_fa <= fa_c3 when lowTune = '1' else fa_c5;
+	high_faD <= faD_c3 when lowTune = '1' else faD_c5;
+	high_sol <= sol_c3 when lowTune = '1' else sol_c5;
+	high_solD <= solD_c3 when lowTune = '1' else solD_c5;
+	high_la <= la_c3 when lowTune = '1' else la_c5;
+	high_laD <= laD_c3 when lowTune = '1' else laD_c5;
+	high_si <= si_c3 when lowTune = '1' else si_c5;
+	
 	sustainFactorValue <= sustainFactor when sustainStatus = '0' else sustainFactorSlow;
 	releaseFactorValue <= releaseFactor when sustainStatus = '0' else releaseFactorSlow;
 	
-	PS0: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1493 ,prescaler_1=>ps(0) );
-	PS1: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1409 ,prescaler_1=>ps(1) );
-	PS2: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1330 ,prescaler_1=>ps(2) );
-	PS3: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1255 ,prescaler_1=>ps(3) );
-	PS4: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1185 ,prescaler_1=>ps(4) );
-	PS5: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1118 ,prescaler_1=>ps(5) );
-	PS6: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>1056 ,prescaler_1=>ps(6) );
-	PS7: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>996 ,prescaler_1=>ps(7) );
-	PS8: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>940 ,prescaler_1=>ps(8) );
-	PS9: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>888 ,prescaler_1=>ps(9) );
-	PS10: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>838 ,prescaler_1=>ps(10) );
-	PS11: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>791 ,prescaler_1=>ps(11) );
-	PS12: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>746 ,prescaler_1=>ps(12) );
-	PS13: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>705 ,prescaler_1=>ps(13) );
-	PS14: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>655 ,prescaler_1=>ps(14) );
-	PS15: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>628 ,prescaler_1=>ps(15) );
-	PS16: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>592 ,prescaler_1=>ps(16) );
-	PS17: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>559 ,prescaler_1=>ps(17) );
-	PS18: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>528 ,prescaler_1=>ps(18) );
-	PS19: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>498 ,prescaler_1=>ps(19) );
-	PS20: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>470 ,prescaler_1=>ps(20) );
-	PS21: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>444 ,prescaler_1=>ps(21) );
-	PS22: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>419 ,prescaler_1=>ps(22) );
-	PS23: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>395 ,prescaler_1=>ps(23) );
+	PS0: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_do   ,prescaler_1=>ps(0)  );
+	PS1: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_doD   ,prescaler_1=>ps(1) );
+	PS2: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_re    ,prescaler_1=>ps(2) );
+	PS3: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_reD   ,prescaler_1=>ps(3) );
+	PS4: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_mi    ,prescaler_1=>ps(4) );
+	PS5: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_fa    ,prescaler_1=>ps(5) );
+	PS6: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_faD   ,prescaler_1=>ps(6) );
+	PS7: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_sol   ,prescaler_1=>ps(7) );
+	PS8: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_solD  ,prescaler_1=>ps(8) );
+	PS9: prescaler port map  (CLK_IN=>clk, resetN=>resetN, count_limit=>low_la    ,prescaler_1=>ps(9) );
+	PS10: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>low_laD   ,prescaler_1=>ps(10));
+	PS11: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>low_si    ,prescaler_1=>ps(11));
+	PS12: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_do   ,prescaler_1=>ps(12));
+	PS13: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_doD  ,prescaler_1=>ps(13));
+	PS14: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_re   ,prescaler_1=>ps(14));
+	PS15: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_reD  ,prescaler_1=>ps(15));
+	PS16: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_mi   ,prescaler_1=>ps(16));
+	PS17: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_fa   ,prescaler_1=>ps(17));
+	PS18: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_faD  ,prescaler_1=>ps(18));
+	PS19: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_sol  ,prescaler_1=>ps(19));
+	PS20: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_solD ,prescaler_1=>ps(20));
+	PS21: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_la   ,prescaler_1=>ps(21));
+	PS22: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_laD  ,prescaler_1=>ps(22));
+	PS23: prescaler port map (CLK_IN=>clk, resetN=>resetN, count_limit=>high_si   ,prescaler_1=>ps(23));
 	
 	cnt0 : addr_counter port map (CLK_IN=>clk, resetN=>resetN, en=>ps(0) ,en1=>ps(0) ,addr=>addr0 );
 	cnt1 : addr_counter port map (CLK_IN=>clk, resetN=>resetN, en=>ps(1) ,en1=>ps(1) ,addr=>addr1 );
