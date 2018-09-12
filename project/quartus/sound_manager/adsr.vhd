@@ -37,10 +37,8 @@ architecture adsr_arch of adsr is
 
 type States is (idle , --initial state
 				attack,	
-				decayPressed,
-				decayReleased,
-				sustainPressed,
-				sustainReleased,		
+				decay,
+				sustain,	
 				releasePressed,
 				releaseReleased);
 
@@ -87,15 +85,15 @@ signal out_n : std_logic_vector(31 downto 0);
 							end if;
 						end if;
 						if en = '0' then
-							state <= decayReleased;
+							state <=  releaseReleased;
 							rounder := 0;
 						elsif amplifier < 32000 then
 							amplifier <= amplifier + attackFactor - rounder;
 						else
-							state <= decayPressed;
+							state <= decay;
 							rounder := 0;
 						end if;
-					when decayPressed =>
+					when decay =>
 						if rounder <= (decayFactor / 2) then
 							if rounder <= (decayFactor / 4) then
 								rounder := rounder + decayRounder;
@@ -104,34 +102,15 @@ signal out_n : std_logic_vector(31 downto 0);
 							end if;
 						end if;
 						if en = '0' then
-							--state <= sustainReleased;
 							state <=  releaseReleased;
 							rounder := 0;
 						elsif amplifier > 16000 then
 							amplifier <= amplifier - decayFactor + rounder;
 						else
-							state <= sustainPressed;
+							state <= sustain;
 							rounder := 0;
 						end if;	
-					when decayReleased =>
-						if rounder <= (decayFactor / 2) then
-							if rounder <= (decayFactor / 4) then
-								rounder := rounder + decayRounder;
-							else
-								rounder := rounder + (decayRounder / 2);
-							end if;
-						end if;
-						if en = '1' then
-							state <= attack;
-							amplifier <= (others => '0');
-							rounder := 0;
-						elsif amplifier > 16000 then
-							amplifier <= amplifier - decayFactor + rounder;
-						else
-							state <= sustainReleased;
-							rounder := 0;
-						end if;	
-					when sustainPressed =>
+					when sustain =>
 						rounder := 0;
 						if en = '0' then
 							state <= releaseReleased;
@@ -142,18 +121,6 @@ signal out_n : std_logic_vector(31 downto 0);
 							state <= releasePressed;
 							rounder := 0;
 						end if;	
-					when sustainReleased =>
-						rounder := 0;
-						if en = '1' then
-							state <= attack;
-							amplifier <= (others => '0');
-							rounder := 0;
-						elsif amplifier > 8000 then
-							amplifier <= amplifier - sustainFactor + rounder;
-						else
-							state <= releaseReleased;
-							rounder := 0;
-						end if;
 					when releasePressed =>
 						if rounder <= (releaseFactor / 2) then
 							if rounder <= (releaseFactor / 4) then
