@@ -59,7 +59,7 @@ begin
 				end if;
 			end if;
 			
-			speed <= std_logic_vector(to_unsigned(index, 4));
+			speed <= std_logic_vector(to_unsigned(index + 1, 4));
 			freq_out <= speed_table(index);
 		end if;
 	end process;

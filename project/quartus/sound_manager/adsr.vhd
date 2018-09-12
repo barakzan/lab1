@@ -104,7 +104,8 @@ signal out_n : std_logic_vector(31 downto 0);
 							end if;
 						end if;
 						if en = '0' then
-							state <= sustainReleased;
+							--state <= sustainReleased;
+							state <=  releaseReleased;
 							rounder := 0;
 						elsif amplifier > 16000 then
 							amplifier <= amplifier - decayFactor + rounder;
